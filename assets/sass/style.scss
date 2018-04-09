@@ -1,0 +1,14 @@
+//Import the initial variables
+@import 'bulma/utilities/initial-variables';
+@import 'bulma/utilities/functions';
+
+
+//Custom Bulma
+
+$notification-padding: 1.25rem 1.5rem 1.25rem 1.5rem;
+
+//Import the rest of Bulma
+@import 'bulma/bulma';
+
+//Custom style
+@import 'home';
