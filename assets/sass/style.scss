@@ -1,12 +1,3 @@
-//Import the initial variables
-@import 'bulma/utilities/initial-variables';
-@import 'bulma/utilities/functions';
-
-//Custom Bulma
-@import 'variables';
-
-//Import the rest of Bulma
-@import 'bulma/bulma';
-
-//Custom style
-@import 'home';
+@import './partials/variables';
+@import './partials/header.scss';
+@import './partials/homePage.scss';
