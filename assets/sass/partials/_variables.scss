@@ -13,6 +13,7 @@ $break-small: 375px;
 // GRAPHIC EXTENDS
 
 %image-background{
+  position: relative;
   background: url(../images/background-heroes.jpg) 0 0 no-repeat;
   background-size: cover;
   opacity: 0.75;
@@ -20,7 +21,7 @@ $break-small: 375px;
 
 %layer-gradient{
   background: $red-radial-gradient;
-  opacity: 0.8;
+  opacity: 0.82;
   position: absolute;
   top: 0;
   left: 0;
@@ -40,9 +41,12 @@ $break-small: 375px;
   border-radius: 18px;
   font-size: 14px;
   font-weight: 500;
+  transition-delay: 0.2s;
 }
+
 %button-white-hover{
   background-color: transparent;
   border: solid 1px $white;
   color: $white;
+  transition-delay: 0.2s;
 }

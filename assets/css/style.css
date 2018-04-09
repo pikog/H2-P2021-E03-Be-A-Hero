@@ -1,12 +1,13 @@
 @charset "UTF-8";
-.homepage-login {
+.homepage-launch, .homepage-login, .homepage-register {
+  position: relative;
   background: url(../images/background-heroes.jpg) 0 0 no-repeat;
   background-size: cover;
   opacity: 0.75; }
 
-.homepage-login .layer {
+.homepage-launch .layer, .homepage-login .layer, .homepage-register .layer {
   background: radial-gradient(ellipse at center, #8a0e00 0%, #8a0e00 1%, #630a00 100%);
-  opacity: 0.8;
+  opacity: 0.82;
   position: absolute;
   top: 0;
   left: 0;
@@ -14,27 +15,57 @@
   height: 100%;
   z-index: -20; }
 
-.homepage-login .logs .button input {
+.homepage-launch .logs .button input, .homepage-login .login-form .submit, .homepage-register .register-form .submit {
   width: 140px;
   height: 35px;
   background-color: #fefefe;
   text-transform: uppercase;
   border-radius: 18px;
   font-size: 14px;
-  font-weight: 500; }
+  font-weight: 500;
+  transition-delay: 0.2s; }
 
-.homepage-login .logs .button input:hover {
+.homepage-launch .logs .button input:hover, .homepage-login .login-form .submit:hover, .homepage-register .register-form .submit:hover {
   background-color: transparent;
   border: solid 1px #fefefe;
-  color: #fefefe; }
+  color: #fefefe;
+  transition-delay: 0.2s; }
 
 header  {
   width: 100%;
   height: 80px; }
 
+.homepage-launch {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Montserrat', sans-serif; }
+  .homepage-launch .logo {
+    display: block;
+    margin: 0 auto;
+    padding-top: 50px;
+    width: 250px;
+    margin-bottom: 140px; }
+  .homepage-launch .logs {
+    display: block;
+    width: 80vw;
+    margin: 0 auto;
+    text-align: center; }
+    .homepage-launch .logs .button {
+      display: inline-block;
+      margin: 0 auto;
+      margin-bottom: 20px; }
+      .homepage-launch .logs .button label {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 12px;
+        font-weight: 300;
+        color: #fefefe; }
+      .homepage-launch .logs .button input {
+        display: block; }
+
 .homepage-login {
   display: block;
-  position: relative;
   width: 100vw;
   height: 100vh;
   font-family: 'Montserrat', sans-serif; }
@@ -43,23 +74,114 @@ header  {
     margin: 0 auto;
     padding-top: 50px;
     width: 250px;
-    margin-bottom: 140px; }
-  .homepage-login .logs {
-    display: block;
-    width: 80vw;
-    margin: 0 auto;
-    text-align: center; }
-    .homepage-login .logs .button {
-      display: inline-block;
+    margin-bottom: 100px; }
+  .homepage-login .login-form {
+    height: auto;
+    margin: 0 auto; }
+    .homepage-login .login-form .input {
+      display: block;
+      width: 180px;
+      height: auto;
       margin: 0 auto;
-      margin-bottom: 20px; }
-      .homepage-login .logs .button label {
-        display: block;
-        margin-bottom: 5px;
-        font-size: 12px;
+      position: relative;
+      margin-bottom: 40px; }
+      .homepage-login .login-form .input .input-text {
+        display: inline-block;
+        width: 100%;
+        margin: 0 auto;
+        font-size: 14px;
         font-weight: 300;
-        color: #fefefe; }
-      .homepage-login .logs .button input {
-        display: block; }
+        background-color: transparent;
+        padding: 10px 10px 10px 5px;
+        border: none;
+        border-bottom: 1px solid #fefefe;
+        color: #fefefe;
+        transition: 0.3s ease all; }
+      .homepage-login .login-form .input input:focus {
+        outline: none;
+        border-bottom: solid 2px #fefefe;
+        transition: 0.3s ease all; }
+      .homepage-login .login-form .input input:focus ~ label {
+        outline: none;
+        top: -20px;
+        font-size: 18px;
+        color: #fefefe;
+        transition: 0.2s ease all; }
+      .homepage-login .login-form .input input:valid ~ label {
+        top: -20px;
+        font-size: 18px;
+        color: #fefefe;
+        transition: 0.2s ease all; }
+      .homepage-login .login-form .input label {
+        position: absolute;
+        color: #fefefe;
+        pointer-events: none;
+        top: 10px;
+        left: 5px;
+        font-size: 20px;
+        transition: 0.2s ease all; }
+    .homepage-login .login-form .submit {
+      display: block;
+      margin: auto; }
+
+.homepage-register {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Montserrat', sans-serif; }
+  .homepage-register .logo {
+    display: block;
+    margin: 0 auto;
+    padding-top: 50px;
+    width: 250px;
+    margin-bottom: 50px; }
+  .homepage-register .register-form {
+    height: auto;
+    margin: 0 auto; }
+    .homepage-register .register-form .input {
+      display: block;
+      width: 180px;
+      height: auto;
+      margin: 0 auto;
+      position: relative;
+      margin-bottom: 40px; }
+      .homepage-register .register-form .input .input-text {
+        display: inline-block;
+        width: 100%;
+        margin: 0 auto;
+        font-size: 14px;
+        font-weight: 300;
+        background-color: transparent;
+        padding: 10px 10px 10px 5px;
+        border: none;
+        border-bottom: 1px solid #fefefe;
+        color: #fefefe;
+        transition: 0.3s ease all; }
+      .homepage-register .register-form .input input:focus {
+        outline: none;
+        border-bottom: solid 2px #fefefe;
+        transition: 0.3s ease all; }
+      .homepage-register .register-form .input input:focus ~ label {
+        outline: none;
+        top: -20px;
+        font-size: 18px;
+        color: #fefefe;
+        transition: 0.2s ease all; }
+      .homepage-register .register-form .input input:valid ~ label {
+        top: -20px;
+        font-size: 18px;
+        color: #fefefe;
+        transition: 0.2s ease all; }
+      .homepage-register .register-form .input label {
+        position: absolute;
+        color: #fefefe;
+        pointer-events: none;
+        top: 10px;
+        left: 5px;
+        font-size: 20px;
+        transition: 0.2s ease all; }
+    .homepage-register .register-form .submit {
+      display: block;
+      margin: auto; }
 
 /*# sourceMappingURL=style.css.map */
