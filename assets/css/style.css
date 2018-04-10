@@ -1,19 +1,20 @@
 @charset "UTF-8";
+/* w3c */
 .homepage-launch, .homepage-login, .homepage-register, .homepage-hero-creation {
   position: relative;
   background: url(../images/background-heroes.jpg) 0 0 no-repeat;
   background-size: cover;
-  opacity: 0.75; }
+  z-index: -2; }
 
 .homepage-launch .layer, .homepage-login .layer, .homepage-register .layer, .homepage-hero-creation .layer {
-  background: radial-gradient(ellipse at center, #8a0e00 0%, #8a0e00 1%, #630a00 100%);
-  opacity: 0.82;
+  background: radial-gradient(ellipse at center, #2e0500 0%, #2e0500 1%, #1a0300 100%);
+  opacity: 0.9;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -20; }
+  z-index: -1; }
 
 .homepage-launch .logs .button input, .homepage-login .login-form .submit, .homepage-register .register-form .submit {
   width: 140px;

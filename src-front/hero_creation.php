@@ -15,6 +15,9 @@
       <input type="button" name="button" value="" class="button hero"/>
       <input type="button" name="button" value="" class="button hero"/>
       <input type="button" name="button" value="" class="button hero"/>
+      <input type="button" name="button" value="" class="button hero"/>
+      <input type="button" name="button" value="" class="button hero"/>
+      <input type="button" name="button" value="" class="button hero"/>
       <div class="input input-hero-name">
         <input autocomplete="off" maxlength="20" class="input-text hero-name" type="text"name="hero-name" value="" required>
         <label> Hero Name <label>
