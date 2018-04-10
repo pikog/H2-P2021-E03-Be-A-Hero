@@ -1,0 +1,13 @@
+<?
+//Import config.ini
+if(file_exists('../app/config.ini'))
+{
+    $ini = parse_ini_file('../app/config.ini', true);
+}
+
+//Database config
+define('DB_HOST', isset($ini['DB']['HOST']) ? $ini['DB']['HOST'] : 'localhost');
+define('DB_PORT', isset($ini['DB']['PORT']) ? $ini['DB']['PORT'] : '3306');
+define('DB_NAME', isset($ini['DB']['NAME']) ? $ini['DB']['NAME'] : 'hetic_t2_be_a_hero');
+define('DB_USER', isset($ini['DB']['USER']) ? $ini['DB']['USER'] : 'root');
+define('DB_PASS', isset($ini['DB']['PASS']) ? $ini['DB']['PASS'] : '');

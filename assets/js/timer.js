@@ -1,6 +1,6 @@
 const redirection404Timer = () =>
 {
-    const $timer = document.querySelector('.page-404 span.timer')
+    const $timer = document.querySelector('.page-404 span.timer, .page-logout span.timer')
     let time = 5
     window.setInterval(() =>
     {
