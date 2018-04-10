@@ -1,6 +1,5 @@
 .homepage-register{
   display: block;
-  width: 100vw;
   height: auto;
   @extend %image-background;
   font-family: 'Montserrat', sans-serif;
@@ -61,16 +60,20 @@
     label{
       @extend %input-text-label;
     }
+    &.input-hero-name{
+      margin-bottom: 35px;
+    }
   }
   .hero-choice{
     display: block;
     width: 80vw;
+    max-width: 220px;
     margin: 0 auto;
-    margin-bottom: 10vw;
+    margin-bottom: 20px;
     text-align: center;
     img.hero{
       display: inline-block;
-      width: 20vw;
+      width: 27%;
       margin-right: 10px;
       margin-bottom: 5vh;
     }

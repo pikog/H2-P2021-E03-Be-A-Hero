@@ -53,10 +53,17 @@
   color: #fefefe;
   transition-delay: 0.2s; }
 
+html {
+  height: 100%; }
+
+body {
+  height: 100%; }
+
+section {
+  height: 100%; }
+
 .homepage-launch {
   display: block;
-  width: 100vw;
-  height: 100vh;
   font-family: 'Montserrat', sans-serif; }
   .homepage-launch .logs {
     display: block;
@@ -81,8 +88,6 @@
 
 .homepage-login {
   display: block;
-  width: 100vw;
-  height: 100vh;
   font-family: 'Montserrat', sans-serif; }
   .homepage-login .login-form {
     height: auto;
@@ -104,7 +109,6 @@
 
 .homepage-register {
   display: block;
-  width: 100vw;
   height: auto;
   font-family: 'Montserrat', sans-serif;
   padding-bottom: 50px; }
@@ -142,21 +146,22 @@
       outline: none;
       border-bottom: solid 2px #fefefe;
       transition: 0.3s ease all; }
+    .homepage-register .input.input-hero-name {
+      margin-bottom: 35px; }
   .homepage-register .hero-choice {
     display: block;
     width: 80vw;
+    max-width: 220px;
     margin: 0 auto;
-    margin-bottom: 10vw;
+    margin-bottom: 20px;
     text-align: center; }
     .homepage-register .hero-choice img.hero {
       display: inline-block;
-      width: 20vw;
+      width: 27%;
       margin-right: 10px;
       margin-bottom: 5vh; }
 
 .page-404 {
-  width: 100vw;
-  height: 100vh;
   font-family: 'Montserrat', sans-serif;
   color: #fefefe;
   position: relative; }
@@ -181,8 +186,6 @@
       font-size: 14px; }
 
 .page-logout {
-  width: 100vw;
-  height: 100vh;
   position: relative;
   font-family: 'Montserrat', sans-serif;
   color: #fefefe; }
