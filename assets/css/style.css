@@ -1,5 +1,5 @@
 /* w3c */
-.homepage-launch, .homepage-login, .homepage-register, .page-404 {
+.homepage-launch, .homepage-login, .homepage-register, .page-404, .page-logout {
   position: relative;
   background: radial-gradient(ellipse at center, #2e0500 0%, #2e0500 1%, #1a0300 100%);
   opacity: 1;
@@ -157,13 +157,16 @@
   width: 100vw;
   height: 100vh;
   font-family: 'Montserrat', sans-serif;
-  color: #fefefe; }
+  color: #fefefe;
+  position: relative; }
   .page-404 .message {
     display: block;
-    width: 75vw;
+    position: absolute;
+    width: 80vw;
     height: auto;
     margin: 0 auto;
-    padding-top: 40vh;
+    top: 40%;
+    left: 12%;
     text-align: center; }
     .page-404 .message h1 {
       font-size: 16px;
@@ -174,6 +177,25 @@
       font-weight: 500;
       margin: 3vh; }
     .page-404 .message p {
+      font-size: 14px; }
+
+.page-logout {
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+  color: #fefefe; }
+  .page-logout .message {
+    display: block;
+    width: 75vw;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 40vh;
+    text-align: center; }
+    .page-logout .message h1 {
+      font-size: 16px;
+      font-weight: 400;
+      margin: 2vh; }
+    .page-logout .message p {
       font-size: 14px; }
 
 /*# sourceMappingURL=style.css.map */
