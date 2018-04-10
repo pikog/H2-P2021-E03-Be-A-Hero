@@ -73,3 +73,17 @@
     {
         return 100 * pow(2, $level);
     }
+
+    function getHeroes()
+    {
+        $result = [];
+        $path = './assets/images/heroes/';
+        foreach (scandir($path) as $file)
+        {
+            if(is_file($path . $file))
+            {
+                $result[] = (pathinfo($file))['filename'];
+            }
+        }
+        return $result;
+    }

@@ -1,5 +1,6 @@
 <?
     include_once './src/View.php';
+    include_once './src/utils.php';
     include_once './src/loginSystem.php';
 
     if(isset($user))
@@ -20,7 +21,8 @@
         }
 
         $data = [
-            'messages' => $messages
+            'messages' => $messages,
+            'heroes' => getHeroes()
         ];
         echo new View('register', 'Register', $data);
     }

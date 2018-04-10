@@ -35,15 +35,9 @@
       </div>
 
       <div class="hero-choice">
-        <img class="hero 1" src="./assets/images/hero-test.png" alt="hero">
-        <img class="hero 2" src="./assets/images/hero-test.png" alt="hero">
-        <img class="hero 3" src="./assets/images/hero-test.png" alt="hero">
-        <img class="hero 4" src="./assets/images/hero-test.png" alt="hero">
-        <img class="hero 5" src="./assets/images/hero-test.png" alt="hero">
-        <img class="hero 6" src="./assets/images/hero-test.png" alt="hero">
-        <img class="hero 7" src="./assets/images/hero-test.png" alt="hero">
-        <img class="hero 8" src="./assets/images/hero-test.png" alt="hero">
-        <img class="hero 9" src="./assets/images/hero-test.png" alt="hero">
+        <? foreach ($heroes as $hero) { ?>
+          <img class="hero" src="./assets/images/heroes/<?= $hero ?>.png" alt="hero-<?= $hero ?>">
+        <? } ?>
       </div>
 
       <input class="hero-input" type="hidden" name="hero-choice" value="">
