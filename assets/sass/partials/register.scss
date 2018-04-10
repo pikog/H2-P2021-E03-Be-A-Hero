@@ -1,0 +1,77 @@
+.homepage-register{
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  @extend %image-background;
+  font-family: 'Montserrat', sans-serif;
+  .layer {
+    @extend %layer-gradient;
+  }
+  .logo{
+    display: block;
+    margin: 0 auto;
+    padding-top: 50px;
+    width: 250px;
+    margin-bottom: 50px;
+  }
+  .register-form{
+    height: auto;
+    margin: 0 auto;
+    .input{
+      display: block;
+      width: 180px;
+      height: auto;
+      margin: 0 auto;
+      position: relative;
+      margin-bottom: 40px;
+      .input-text{
+        display: inline-block;
+        width: 100%;
+        margin: 0 auto;
+        font-size: 14px;
+        font-weight: 300;
+        background-color: transparent;
+        padding: 10px 10px 10px 5px;
+        border: none;
+        border-bottom: 1px solid $white;
+        color: $white;
+        transition: 0.3s ease all;
+      }
+        input:focus{
+          outline: none;
+          border-bottom: solid 2px $white;
+          transition: 0.3s ease all;
+        }
+        input:focus~label{
+          outline: none;
+          top: -15px;
+          font-size: 16px;
+          color: $white;
+          transition: 0.2s ease all;
+        }
+         input:valid~label{
+           top: -15px;
+           font-size: 16px;
+           color: $white;
+           transition: 0.2s ease all;
+        }
+      label{
+        position: absolute;
+        color: $white;
+        pointer-events: none;
+        top: 10px;
+        left: 5px;
+        font-size: 18px;
+        transition: 0.2s ease all;
+      }
+    }
+    .submit{
+      display: block;
+      @extend %button-white;
+      margin: auto;
+    }
+    .submit:hover{
+      @extend %button-white-hover;
+    }
+  }
+}

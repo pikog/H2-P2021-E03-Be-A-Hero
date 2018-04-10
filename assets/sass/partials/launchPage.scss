@@ -1,0 +1,42 @@
+.homepage-launch{
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  @extend %image-background;
+  font-family: 'Montserrat', sans-serif;
+  .layer {
+    @extend %layer-gradient;
+  }
+  .logo{
+    display: block;
+    margin: 0 auto;
+    padding-top: 50px;
+    width: 250px;
+    margin-bottom: 140px;
+  }
+  .logs{
+    display: block;
+    width: 80vw;
+    margin: 0 auto;
+    text-align: center;
+    .button{
+      display: inline-block;
+      margin: 0 auto;
+      margin-bottom: 20px;
+      label{
+        display: block;
+        margin-bottom: 5px;
+        font-size: 12px;
+        font-weight: 300;
+        color : $white;
+      }
+      input{
+        display: block;
+        @extend %button-white;
+      }
+      input:hover{
+        @extend %button-white-hover;
+      }
+    }
+  }
+}
