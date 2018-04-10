@@ -94,32 +94,6 @@
             $this->xp = $result->xp;
             $this->eventsSuccess = $result->events_success;
             $this->isAdmin = boolval($result->is_admin);
-        }
 
-        /**
-         * Get user information from database
-         */
-        private function getAvailable()
-        {
-            $pdo = new DB();
-            $pdo = $pdo->getInstance();
-    
-            $req = $pdo->prepare('SELECT * FROM users WHERE id = :id');
-            $req->bindValue(':id', $this->id);
-            $req->execute();
-
-            $result = $req->fetch();
-
-            $this->username = $result->username;
-            $this->password = $result->password;
-            $this->lastGeoloc = strtotime($result->last_geoloc);
-            $this->lastGeolocLat = floatval($result->last_geoloc_lat);
-            $this->lastGeolocLon = floatval($result->last_geoloc_lon);
-            $this->heroName = $result->hero_name;
-            $this->hero = intval($result->hero);
-            $this->level = $result->level;
-            $this->xp = $result->xp;
-            $this->eventsSuccess = $result->events_success;
-            $this->isAdmin = boolval($result->is_admin);
         }
     }

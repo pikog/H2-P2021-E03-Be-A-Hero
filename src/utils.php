@@ -68,3 +68,8 @@
 
         return $results;
     }
+
+    function calcXpToNext($level)
+    {
+        return 100 * pow(2, $level);
+    }
