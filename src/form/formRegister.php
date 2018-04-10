@@ -72,6 +72,11 @@
                 $messages['errors']['hero'] = 'Invalid hero';
                 $messages['values']['hero'] = 0;
             }
+            else if(!in_array(getHeroes(), $hero))
+            {
+                $messages['errors']['hero'] = 'Invalid hero';
+                $messages['values']['hero'] = 0;
+            }
 
             // Success
             if(empty($messages['errors']))

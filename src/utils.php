@@ -48,8 +48,7 @@
         $req->bindValue(':username', $username);
         $req->execute();
         $result = $req->fetch();
-
-        return isset($result) ? $result->id : null;
+        return !empty($result) ? $result->id : null;
     }
 
     /**

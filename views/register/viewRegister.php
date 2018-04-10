@@ -19,7 +19,7 @@
       </div>
 
       <div class="input input-retype-password">
-        <input autocomplete="off" maxlength="20" class="input-text user-re-password" type="password" id="password-retype" name="retype-password">
+        <input autocomplete="off" maxlength="20" class="input-text user-re-password" type="password" id="password-retype" name="password-retype">
         <label for="password-retype" class="<?= isset($messages['errors']['password-retype']) ? 'error' : ''; ?>">
                 <?= isset($messages['errors']['password-retype']) ? $messages['errors']['password-retype'] : 'Confirm password'; ?>
         <label>

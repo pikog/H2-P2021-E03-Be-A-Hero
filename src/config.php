@@ -1,8 +1,8 @@
 <?
 //Import config.ini
-if(file_exists('../app/config.ini'))
+if(file_exists('./src/config.ini'))
 {
-    $ini = parse_ini_file('../app/config.ini', true);
+    $ini = parse_ini_file('./src/config.ini', true);
 }
 
 //Database config
