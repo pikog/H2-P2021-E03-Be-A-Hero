@@ -64,6 +64,7 @@ $break-small: 375px;
   font-size: 14px;
   font-weight: 500;
   transition-delay: 0.2s;
+  box-sizing: content-box;
 }
 
 %button-white-active{
