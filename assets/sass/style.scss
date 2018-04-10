@@ -1,6 +1,6 @@
-@import './partials/_variables.scss';
-@import './partials/launchPage.scss';
-@import './partials/login.scss';
-@import './partials/register.scss';
-@import "./partials/404.scss";
-@import "./partials/logout.scss";
+@import 'variables';
+@import 'launchPage';
+@import 'login';
+@import 'register';
+@import '404';
+@import 'logout';

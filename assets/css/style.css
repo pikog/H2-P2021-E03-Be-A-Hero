@@ -182,14 +182,17 @@
 .page-logout {
   width: 100vw;
   height: 100vh;
+  position: relative;
   font-family: 'Montserrat', sans-serif;
   color: #fefefe; }
   .page-logout .message {
     display: block;
-    width: 75vw;
+    position: absolute;
+    width: 80vw;
     height: auto;
     margin: 0 auto;
-    margin-top: 40vh;
+    top: 40%;
+    left: 12%;
     text-align: center; }
     .page-logout .message h1 {
       font-size: 16px;
