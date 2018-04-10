@@ -7,9 +7,9 @@
             </div>
         </div>
     </footer>
-    <script src="../assets/js/main.js"></script>
+    <script src="./assets/js/main.js"></script>
     <? if ($page == '404') { ?>
-        <script src="../assets/js/404.js"></script>
+        <script src="./assets/js/404.js"></script>
     <? } ?>
 </body>
 </html>
