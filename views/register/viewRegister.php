@@ -19,9 +19,9 @@
       </div>
 
       <div class="input input-retype-password">
-        <input autocomplete="off" maxlength="20" class="input-text user-re-password" type="password" id="retype-password" name="retype-password">
-        <label for="retype-password" class="<?= isset($messages['errors']['retype-password']) ? 'error' : ''; ?>">
-                <?= isset($messages['errors']['retype-password']) ? $messages['errors']['retype-password'] : 'Confirm password'; ?>
+        <input autocomplete="off" maxlength="20" class="input-text user-re-password" type="password" id="password-retype" name="retype-password">
+        <label for="password-retype" class="<?= isset($messages['errors']['password-retype']) ? 'error' : ''; ?>">
+                <?= isset($messages['errors']['password-retype']) ? $messages['errors']['password-retype'] : 'Confirm password'; ?>
         <label>
       </div>
 
@@ -40,7 +40,7 @@
         <? } ?>
       </div>
 
-      <input class="hero-input" type="hidden" name="hero-choice" value="">
+      <input class="hero-input" type="hidden" name="hero" value="<?= isset($messages['values']['hero']) ? $messages['values']['hero'] : 0; ?>">
 
       <input type="submit" class="submit" name="submit" value="Submit">
     </form>
