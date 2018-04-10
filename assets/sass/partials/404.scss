@@ -1,0 +1,28 @@
+.page-404{
+  width: 100vw;
+  height: 100vh;
+  @extend %image-background;
+  font-family: 'Montserrat', sans-serif;
+  color: #fefefe;
+  .message{
+    display: block;
+    width: 75vw;
+    height: auto;
+    margin: 0 auto;
+    padding-top: 40vh;
+    text-align: center;
+    h1{
+      font-size: 16px;
+      font-weight: 400;
+      margin: 2vh;
+    }
+    h2{
+      font-size: 24px;
+      font-weight: 500;
+      margin: 3vh;
+    }
+    p{
+      font-size: 14px;
+    }
+  }
+}

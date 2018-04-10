@@ -1,5 +1,5 @@
 /* w3c */
-.homepage-launch, .homepage-login, .homepage-register {
+.homepage-launch, .homepage-login, .homepage-register, .page-404 {
   position: relative;
   background: radial-gradient(ellipse at center, #2e0500 0%, #2e0500 1%, #1a0300 100%);
   opacity: 1;
@@ -38,7 +38,7 @@
 .homepage-launch .logs .button a, .homepage-login .login-form .submit, .homepage-register .register-form .submit {
   width: 180px;
   padding-top: 10px;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
   background-color: #fefefe;
   text-transform: uppercase;
   border-radius: 18px;
@@ -107,6 +107,8 @@
   height: auto;
   font-family: 'Montserrat', sans-serif;
   padding-bottom: 50px; }
+  .homepage-register .logo {
+    margin-bottom: 15vh; }
   .homepage-register .register-form {
     height: auto;
     margin: 0 auto; }
@@ -150,5 +152,28 @@
       width: 20vw;
       margin-right: 10px;
       margin-bottom: 5vh; }
+
+.page-404 {
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+  color: #fefefe; }
+  .page-404 .message {
+    display: block;
+    width: 75vw;
+    height: auto;
+    margin: 0 auto;
+    padding-top: 40vh;
+    text-align: center; }
+    .page-404 .message h1 {
+      font-size: 16px;
+      font-weight: 400;
+      margin: 2vh; }
+    .page-404 .message h2 {
+      font-size: 24px;
+      font-weight: 500;
+      margin: 3vh; }
+    .page-404 .message p {
+      font-size: 14px; }
 
 /*# sourceMappingURL=style.css.map */

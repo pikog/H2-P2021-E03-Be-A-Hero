@@ -5,18 +5,6 @@ for(let hero of $heroes){
   hero.addEventListener('click', () => {
     $heroValue = hero.getAttribute('data-id')
     $inputHero.value = $heroValue
-    console.log($inputHero.value)
-    changeHeroSelection()
+    console.log($inputHero)
   }, false)
-}
-
-const changeHeroSelection = () => {
-  for (let hero of $heroes) {
-    $heroValue = hero.getAttribute('data-id')
-    if ($inputHero.value != $heroValue) {
-      hero.style.backgroundColor = 'transparent'
-    } else {
-      hero.style.backgroundColor = "blue"
-    }
-  }
 }
