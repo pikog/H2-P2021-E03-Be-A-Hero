@@ -92,7 +92,7 @@
             $this->hero = intval($result->hero);
             $this->level = $result->level;
             $this->xp = $result->xp;
-            $this->eventsSuccess = $result->events_success;
+            $this->eventsSuccess = json_decode($result->events_success);
             $this->isAdmin = boolval($result->is_admin);
 
         }
