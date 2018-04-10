@@ -97,99 +97,29 @@
         }
 
         /**
-         * Update user information
+         * Get user information from database
          */
-        public function updateUserInfo($data)
+        private function getAvailable()
         {
-            $columns = [];
-
-            foreach($data as $key => $value) {
-
-                if($key === 'cities' || $key === 'daily_alert_cities')
-                {
-                    $value = json_encode($value);
-                }
-
-                $columns[] = $key . ' = \'' . $value . '\'';
-            }
-            
             $pdo = new DB();
             $pdo = $pdo->getInstance();
     
-            $req = $pdo->prepare('UPDATE users SET '. implode(", ", $columns) .' WHERE username = :username');
-            $req->bindValue(':username', $this->username);
+            $req = $pdo->prepare('SELECT * FROM users WHERE id = :id');
+            $req->bindValue(':id', $this->id);
             $req->execute();
-            
-            if(isset($data['first_name']))
-            {
-                $this->firstName = $data['first_name'];
-            }
-            if(isset($data['password_hash']))
-            {
-                $this->passwordHash = $data['password_hash'];
-            }
-            if(isset($data['email']))
-            {
-                $this->email = $data['email'];
-            }
-            if(isset($data['cities']))
-            {
-                $this->cities = $data['cities'];
-            }
-            if(isset($data['daily_alert']))
-            {
-                $this->dailyAlert = $data['daily_alert'];
-            }
-            if(isset($data['daily_alert_hour']))
-            {
-                $this->dailyAlertHour = $data['daily_alert_hour'];
-            }
-            if(isset($data['daily_alert_cities']))
-            {
-                $this->dailyAlertCities = $data['daily_alert_cities'];
-            }
-        }
 
-        /**
-         * Link a city with the user
-         */
-        public function addCity($cityId)
-        {
-            if(array_search($cityId, $this->cities) === false)
-            {
-                $this->cities[] = $cityId;
-            }
+            $result = $req->fetch();
 
-            $pdo = new DB();
-            $pdo = $pdo->getInstance();
-    
-            $req = $pdo->prepare('UPDATE users SET cities = :cities WHERE username = :username');
-            $req->bindValue(':username', $this->username);
-            $req->bindValue(':cities', json_encode($this->cities));
-    
-            $req->execute();
-        }
-
-        /**
-         * Remove a city from this user
-         */
-        public function removeCity($cityId)
-        {
-            array_splice($this->cities, array_search($cityId, $this->cities), 1);
-            array_splice($this->dailyAlertCities, array_search($cityId, $this->dailyAlertCities), 1);
-
-            $pdo = new DB();
-            $pdo = $pdo->getInstance();
-    
-            $req = $pdo->prepare('UPDATE users SET cities = :cities, daily_alert_cities = :daily_alert_cities WHERE username = :username');
-            $req->bindValue(':username', $this->username);
-            $req->bindValue(':cities', json_encode($this->cities));
-            $req->bindValue(':daily_alert_cities', json_encode($this->dailyAlertCities));
-            $req->execute();
-        }
-
-        public function haveThisCity($cityId)
-        {
-            return array_search($cityId, $this->cities) !== false;
+            $this->username = $result->username;
+            $this->password = $result->password;
+            $this->lastGeoloc = strtotime($result->last_geoloc);
+            $this->lastGeolocLat = floatval($result->last_geoloc_lat);
+            $this->lastGeolocLon = floatval($result->last_geoloc_lon);
+            $this->heroName = $result->hero_name;
+            $this->hero = intval($result->hero);
+            $this->level = $result->level;
+            $this->xp = $result->xp;
+            $this->eventsSuccess = $result->events_success;
+            $this->isAdmin = boolval($result->is_admin);
         }
     }
