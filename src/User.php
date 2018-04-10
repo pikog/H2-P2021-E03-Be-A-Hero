@@ -89,7 +89,7 @@
             $this->lastGeolocLat = floatval($result->last_geoloc_lat);
             $this->lastGeolocLon = floatval($result->last_geoloc_lon);
             $this->heroName = $result->hero_name;
-            $this->hero = $result->hero;
+            $this->hero = intval($result->hero);
             $this->level = $result->level;
             $this->xp = $result->xp;
             $this->eventsSuccess = $result->events_success;
