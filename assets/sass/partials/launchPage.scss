@@ -4,15 +4,8 @@
   height: 100vh;
   @extend %image-background;
   font-family: 'Montserrat', sans-serif;
-  .layer {
-    @extend %layer-gradient;
-  }
   .logo{
-    display: block;
-    margin: 0 auto;
-    padding-top: 50px;
-    width: 250px;
-    margin-bottom: 140px;
+    @extend %logo-large;
   }
   .logs{
     display: block;
@@ -21,21 +14,24 @@
     text-align: center;
     .button{
       display: inline-block;
-      margin: 0 auto;
-      margin-bottom: 20px;
-      label{
+      margin-bottom: 10vh;
+      span{
         display: block;
-        margin-bottom: 5px;
-        font-size: 12px;
+        text-align: left;
+        margin-bottom: 2vh;
+        font-size: 14px;
         font-weight: 300;
         color : $white;
       }
-      input{
+      a{
         display: block;
         @extend %button-white;
+        text-decoration: none;
+        color: #000000;
+        cursor: pointer;
       }
-      input:hover{
-        @extend %button-white-hover;
+      a:hover{
+        @extend %button-white-active;
       }
     }
   }

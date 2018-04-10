@@ -14,28 +14,50 @@ $break-small: 375px;
 
 %image-background{
   position: relative;
-  background: url(../images/background-heroes.jpg) 0 0 no-repeat;
-  background-size: cover;
-  z-index: -2;
-}
-
-%layer-gradient{
   background: $red-radial-gradient;
-  opacity: 0.9;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
+  opacity: 1;
+  background-size: cover;
 }
 
+%logo-large{
+  display: block;
+  margin: 0 auto;
+  padding-top: 5vh;
+  width: 250px;
+  margin-bottom: 13vh;
+}
+
+%input-text{
+  display: inline-block;
+  width: 100%;
+  margin: 0 auto;
+  font-size: 13px;
+  font-weight: 300;
+  background-color: transparent;
+  padding: 5px 5px 5px 5px;
+  border: none;
+  border-bottom: 1px solid $white;
+  color: $white;
+  transition: 0.3s ease all;
+}
+
+%input-text-label{
+  position: absolute;
+  width: 100%;
+  color: $white;
+  pointer-events: none;
+  top: -22px;
+  left: 5px;
+  font-size: 16px;
+  font-weight: 500;
+}
 
 /// COMPONENTS
 
 %button-white{
-  width: 140px;
-  height: 35px;
+  width: 180px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   background-color: $white;
   text-transform: uppercase;
   border-radius: 18px;
@@ -44,7 +66,7 @@ $break-small: 375px;
   transition-delay: 0.2s;
 }
 
-%button-white-hover{
+%button-white-active{
   background-color: transparent;
   border: solid 1px $white;
   color: $white;
