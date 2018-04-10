@@ -1,6 +1,7 @@
   <section class="homepage-register">
     <div class="layer"></div>
     <img class="logo" src="./assets/images/logo.png" alt="logo Be A Hero">
+
     <form class="register-form" action="register" method="post">
 
       <div class="input input-user">
