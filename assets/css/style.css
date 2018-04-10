@@ -44,7 +44,8 @@
   border-radius: 18px;
   font-size: 14px;
   font-weight: 500;
-  transition-delay: 0.2s; }
+  transition-delay: 0.2s;
+  box-sizing: content-box; }
 
 .homepage-launch .logs .button a:hover, .homepage-login .login-form .submit:hover {
   background-color: transparent;
