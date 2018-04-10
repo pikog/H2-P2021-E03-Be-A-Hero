@@ -12,7 +12,7 @@
         include_once './src/form/formRegister.php';
 
         $messages = formRegister($_POST);
-    
+
         if($messages['success'])
         {
             header('Location: ./');
@@ -24,3 +24,5 @@
         ];
         echo new View('register', 'Register', $data);
     }
+
+    

@@ -1,23 +1,44 @@
 /* w3c */
-.homepage-launch, .homepage-login, .homepage-register, .homepage-hero-creation {
+.homepage-launch, .homepage-login, .homepage-register {
   position: relative;
-  background: url(../images/background-heroes.jpg) 0 0 no-repeat;
-  background-size: cover;
-  z-index: -2; }
-
-.homepage-launch .layer, .homepage-login .layer, .homepage-register .layer, .homepage-hero-creation .layer {
   background: radial-gradient(ellipse at center, #2e0500 0%, #2e0500 1%, #1a0300 100%);
-  opacity: 0.9;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1; }
+  opacity: 1;
+  background-size: cover; }
 
-.homepage-launch .logs .button input, .homepage-login .login-form .submit, .homepage-register .register-form .submit {
-  width: 140px;
-  height: 35px;
+.homepage-launch .logo, .homepage-login .logo, .homepage-register .logo {
+  display: block;
+  margin: 0 auto;
+  padding-top: 5vh;
+  width: 250px;
+  margin-bottom: 13vh; }
+
+.homepage-login .login-form .input .input-text, .homepage-register .register-form .input .input-text, .homepage-register .input .input-text {
+  display: inline-block;
+  width: 100%;
+  margin: 0 auto;
+  font-size: 13px;
+  font-weight: 300;
+  background-color: transparent;
+  padding: 5px 5px 5px 5px;
+  border: none;
+  border-bottom: 1px solid #fefefe;
+  color: #fefefe;
+  transition: 0.3s ease all; }
+
+.homepage-login .login-form .input label, .homepage-register .register-form .input label, .homepage-register .input label {
+  position: absolute;
+  width: 100%;
+  color: #fefefe;
+  pointer-events: none;
+  top: -22px;
+  left: 5px;
+  font-size: 16px;
+  font-weight: 500; }
+
+.homepage-launch .logs .button a, .homepage-login .login-form .submit, .homepage-register .register-form .submit {
+  width: 180px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   background-color: #fefefe;
   text-transform: uppercase;
   border-radius: 18px;
@@ -25,7 +46,7 @@
   font-weight: 500;
   transition-delay: 0.2s; }
 
-.homepage-launch .logs .button input:hover, .homepage-login .login-form .submit:hover, .homepage-register .register-form .submit:hover {
+.homepage-launch .logs .button a:hover, .homepage-login .login-form .submit:hover {
   background-color: transparent;
   border: solid 1px #fefefe;
   color: #fefefe;
@@ -36,12 +57,6 @@
   width: 100vw;
   height: 100vh;
   font-family: 'Montserrat', sans-serif; }
-  .homepage-launch .logo {
-    display: block;
-    margin: 0 auto;
-    padding-top: 50px;
-    width: 250px;
-    margin-bottom: 140px; }
   .homepage-launch .logs {
     display: block;
     width: 80vw;
@@ -49,28 +64,25 @@
     text-align: center; }
     .homepage-launch .logs .button {
       display: inline-block;
-      margin: 0 auto;
-      margin-bottom: 20px; }
-      .homepage-launch .logs .button label {
+      margin-bottom: 10vh; }
+      .homepage-launch .logs .button span {
         display: block;
-        margin-bottom: 5px;
-        font-size: 12px;
+        text-align: left;
+        margin-bottom: 2vh;
+        font-size: 14px;
         font-weight: 300;
         color: #fefefe; }
-      .homepage-launch .logs .button input {
-        display: block; }
+      .homepage-launch .logs .button a {
+        display: block;
+        text-decoration: none;
+        color: #000000;
+        cursor: pointer; }
 
 .homepage-login {
   display: block;
   width: 100vw;
   height: 100vh;
   font-family: 'Montserrat', sans-serif; }
-  .homepage-login .logo {
-    display: block;
-    margin: 0 auto;
-    padding-top: 50px;
-    width: 250px;
-    margin-bottom: 100px; }
   .homepage-login .login-form {
     height: auto;
     margin: 0 auto; }
@@ -80,181 +92,62 @@
       height: auto;
       margin: 0 auto;
       position: relative;
-      margin-bottom: 40px; }
-      .homepage-login .login-form .input .input-text {
-        display: inline-block;
-        width: 100%;
-        margin: 0 auto;
-        font-size: 14px;
-        font-weight: 300;
-        background-color: transparent;
-        padding: 10px 10px 10px 5px;
-        border: none;
-        border-bottom: 1px solid #fefefe;
-        color: #fefefe;
-        transition: 0.3s ease all; }
+      margin-bottom: 12vh; }
       .homepage-login .login-form .input input:focus {
         outline: none;
         border-bottom: solid 2px #fefefe;
-        transition: 0.3s ease all; }
-      .homepage-login .login-form .input input:focus ~ label {
-        outline: none;
-        top: -20px;
-        font-size: 18px;
-        color: #fefefe;
-        transition: 0.2s ease all; }
-      .homepage-login .login-form .input input:valid ~ label {
-        top: -20px;
-        font-size: 18px;
-        color: #fefefe;
-        transition: 0.2s ease all; }
-      .homepage-login .login-form .input label {
-        position: absolute;
-        color: #fefefe;
-        pointer-events: none;
-        top: 10px;
-        left: 5px;
-        font-size: 20px;
-        transition: 0.2s ease all; }
+        transition: 0.2s all; }
     .homepage-login .login-form .submit {
       display: block;
-      margin: auto; }
+      margin: 0 auto; }
 
 .homepage-register {
   display: block;
   width: 100vw;
-  height: 100vh;
+  height: auto;
   font-family: 'Montserrat', sans-serif; }
-  .homepage-register .logo {
-    display: block;
-    margin: 0 auto;
-    padding-top: 50px;
-    width: 250px;
-    margin-bottom: 50px; }
   .homepage-register .register-form {
     height: auto;
     margin: 0 auto; }
     .homepage-register .register-form .input {
       display: block;
-      width: 180px;
+      width: 220px;
       height: auto;
       margin: 0 auto;
       position: relative;
-      margin-bottom: 40px; }
-      .homepage-register .register-form .input .input-text {
-        display: inline-block;
-        width: 100%;
-        margin: 0 auto;
-        font-size: 14px;
-        font-weight: 300;
-        background-color: transparent;
-        padding: 10px 10px 10px 5px;
-        border: none;
-        border-bottom: 1px solid #fefefe;
-        color: #fefefe;
-        transition: 0.3s ease all; }
+      margin-bottom: 14vh; }
       .homepage-register .register-form .input input:focus {
         outline: none;
-        border-bottom: solid 2px #fefefe;
-        transition: 0.3s ease all; }
-      .homepage-register .register-form .input input:focus ~ label {
-        outline: none;
-        top: -15px;
-        font-size: 16px;
-        color: #fefefe;
-        transition: 0.2s ease all; }
-      .homepage-register .register-form .input input:valid ~ label {
-        top: -15px;
-        font-size: 16px;
-        color: #fefefe;
-        transition: 0.2s ease all; }
-      .homepage-register .register-form .input label {
-        position: absolute;
-        color: #fefefe;
-        pointer-events: none;
-        top: 10px;
-        left: 5px;
-        font-size: 18px;
-        transition: 0.2s ease all; }
+        border-bottom: solid 2px #fefefe; }
     .homepage-register .register-form .submit {
       display: block;
       margin: auto; }
-
-.homepage-hero-creation {
-  display: block;
-  width: 100vw;
-  height: 150vh;
-  font-family: 'Montserrat', sans-serif; }
-  .homepage-hero-creation .logo {
-    display: block;
-    width: 200px;
-    margin: 0 auto;
-    padding-top: 30px;
-    margin-bottom: 50px; }
-  .homepage-hero-creation .title {
+  .homepage-register .title {
     font-size: 24px;
     color: #fefefe;
     text-align: center;
-    margin-bottom: 10px; }
-  .homepage-hero-creation .heroes {
+    margin-bottom: 12vh; }
+  .homepage-register .input {
     display: block;
-    width: 90vw;
+    width: 180px;
+    height: auto;
     margin: 0 auto;
+    position: relative;
+    margin-top: 12vh; }
+    .homepage-register .input input:focus {
+      outline: none;
+      border-bottom: solid 2px #fefefe;
+      transition: 0.3s ease all; }
+  .homepage-register .hero-choice {
+    display: block;
+    width: 80vw;
+    margin: 0 auto;
+    margin-bottom: 10vw;
     text-align: center; }
-    .homepage-hero-creation .heroes .hero {
+    .homepage-register .hero-choice img.hero {
       display: inline-block;
-      background: url("../images/hero-test.png");
-      background-size: contain;
-      background-repeat: no-repeat;
-      border: none;
-      width: 70px;
-      height: 100px;
-      margin: 10px; }
-      .homepage-hero-creation .heroes .hero :active {
-        outline: none; }
-      .homepage-hero-creation .heroes .hero :focus {
-        outline: none; }
-    .homepage-hero-creation .heroes .input {
-      display: block;
-      width: 180px;
-      height: auto;
-      margin: 0 auto;
-      position: relative;
-      margin-top: 40px; }
-      .homepage-hero-creation .heroes .input .input-text {
-        display: inline-block;
-        width: 100%;
-        margin: 0 auto;
-        font-size: 14px;
-        font-weight: 300;
-        background-color: transparent;
-        padding: 10px 10px 10px 5px;
-        border: none;
-        border-bottom: 1px solid #fefefe;
-        color: #fefefe;
-        transition: 0.3s ease all; }
-      .homepage-hero-creation .heroes .input input:focus {
-        outline: none;
-        border-bottom: solid 2px #fefefe;
-        transition: 0.3s ease all; }
-      .homepage-hero-creation .heroes .input input:focus ~ label {
-        outline: none;
-        top: -15px;
-        font-size: 16px;
-        color: #fefefe;
-        transition: 0.2s ease all; }
-      .homepage-hero-creation .heroes .input input:valid ~ label {
-        top: -15px;
-        font-size: 16px;
-        color: #fefefe;
-        transition: 0.2s ease all; }
-      .homepage-hero-creation .heroes .input label {
-        position: absolute;
-        color: #fefefe;
-        pointer-events: none;
-        top: 10px;
-        left: 5px;
-        font-size: 18px;
-        transition: 0.2s ease all; }
+      width: 20vw;
+      margin-right: 10px;
+      margin-bottom: 5vh; }
 
 /*# sourceMappingURL=style.css.map */

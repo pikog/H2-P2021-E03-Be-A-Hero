@@ -1,7 +1,6 @@
 <section class="homepage-login">
-    <div class="layer"></div>
     <img class="logo" src="./assets/images/logo.png" alt="logo Be A Hero">
-    <form class="login-form" action="./login" method="post">
+    <form class="login-form" action="login" method="post">
         <div class="input input-user">
             <input autocomplete="off" maxlength="30" class="input-text user" type="text" id="username" name="username" value="<?= $messages['values']['username'] ?>">
             <label for="username" class="<?= isset($messages['errors']['username']) ? 'error' : ''; ?>">
