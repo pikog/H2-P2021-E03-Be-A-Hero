@@ -1,11 +1,11 @@
 @charset "UTF-8";
-.homepage-launch, .homepage-login, .homepage-register {
+.homepage-launch, .homepage-login, .homepage-register, .homepage-hero-creation {
   position: relative;
   background: url(../images/background-heroes.jpg) 0 0 no-repeat;
   background-size: cover;
   opacity: 0.75; }
 
-.homepage-launch .layer, .homepage-login .layer, .homepage-register .layer {
+.homepage-launch .layer, .homepage-login .layer, .homepage-register .layer, .homepage-hero-creation .layer {
   background: radial-gradient(ellipse at center, #8a0e00 0%, #8a0e00 1%, #630a00 100%);
   opacity: 0.82;
   position: absolute;
@@ -163,13 +163,13 @@ header  {
         transition: 0.3s ease all; }
       .homepage-register .register-form .input input:focus ~ label {
         outline: none;
-        top: -20px;
-        font-size: 18px;
+        top: -15px;
+        font-size: 16px;
         color: #fefefe;
         transition: 0.2s ease all; }
       .homepage-register .register-form .input input:valid ~ label {
-        top: -20px;
-        font-size: 18px;
+        top: -15px;
+        font-size: 16px;
         color: #fefefe;
         transition: 0.2s ease all; }
       .homepage-register .register-form .input label {
@@ -178,10 +178,87 @@ header  {
         pointer-events: none;
         top: 10px;
         left: 5px;
-        font-size: 20px;
+        font-size: 18px;
         transition: 0.2s ease all; }
     .homepage-register .register-form .submit {
       display: block;
       margin: auto; }
+
+.homepage-hero-creation {
+  display: block;
+  width: 100vw;
+  height: 150vh;
+  font-family: 'Montserrat', sans-serif; }
+  .homepage-hero-creation .logo {
+    display: block;
+    width: 200px;
+    margin: 0 auto;
+    padding-top: 30px;
+    margin-bottom: 50px; }
+  .homepage-hero-creation .title {
+    font-size: 24px;
+    color: #fefefe;
+    text-align: center;
+    margin-bottom: 10px; }
+  .homepage-hero-creation .heroes {
+    display: block;
+    width: 90vw;
+    margin: 0 auto;
+    text-align: center; }
+    .homepage-hero-creation .heroes .hero {
+      display: inline-block;
+      background: url("../images/hero-test.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      border: none;
+      width: 70px;
+      height: 100px;
+      margin: 10px; }
+      .homepage-hero-creation .heroes .hero :active {
+        outline: none; }
+      .homepage-hero-creation .heroes .hero :focus {
+        outline: none; }
+    .homepage-hero-creation .heroes .input {
+      display: block;
+      width: 180px;
+      height: auto;
+      margin: 0 auto;
+      position: relative;
+      margin-top: 40px; }
+      .homepage-hero-creation .heroes .input .input-text {
+        display: inline-block;
+        width: 100%;
+        margin: 0 auto;
+        font-size: 14px;
+        font-weight: 300;
+        background-color: transparent;
+        padding: 10px 10px 10px 5px;
+        border: none;
+        border-bottom: 1px solid #fefefe;
+        color: #fefefe;
+        transition: 0.3s ease all; }
+      .homepage-hero-creation .heroes .input input:focus {
+        outline: none;
+        border-bottom: solid 2px #fefefe;
+        transition: 0.3s ease all; }
+      .homepage-hero-creation .heroes .input input:focus ~ label {
+        outline: none;
+        top: -15px;
+        font-size: 16px;
+        color: #fefefe;
+        transition: 0.2s ease all; }
+      .homepage-hero-creation .heroes .input input:valid ~ label {
+        top: -15px;
+        font-size: 16px;
+        color: #fefefe;
+        transition: 0.2s ease all; }
+      .homepage-hero-creation .heroes .input label {
+        position: absolute;
+        color: #fefefe;
+        pointer-events: none;
+        top: 10px;
+        left: 5px;
+        font-size: 18px;
+        transition: 0.2s ease all; }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,6 +1,3 @@
-<?php include './partials/_header.php'; ?>
-
-<body>
   <section class="homepage-register">
     <div class="layer"></div>
     <img class="logo" src="../assets/images/logo.png" alt="logo Be A Hero">
@@ -13,16 +10,15 @@
 
       <div class="input input-password">
         <input autocomplete="off" maxlength="30" class="input-text user-password" type="text" id="user-password" name="user-password" value="" required>
-        <label> Hero Name <label>
+        <label> Password <label>
       </div>
 
-      <div class="input input-password">
-        <input autocomplete="off" maxlength="30" class="input-text user-password" type="text" id="user-password" name="user-password" value="" required>
-        <label> Password <label>
+      <div class="input input-retype-password">
+        <input autocomplete="off" maxlength="30" class="input-text user-re-password" type="text" id="user-re-password" name="user-re-password" value="" required>
+        <label> Confirm Password <label>
       </div>
 
       <input type="submit" class="submit" name="submit" value="Submit">
     </form>
 
   </section>
-</body>

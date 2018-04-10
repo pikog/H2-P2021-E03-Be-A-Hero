@@ -1,7 +1,7 @@
-.homepage-register{
+.homepage-hero-creation{
   display: block;
   width: 100vw;
-  height: 100vh;
+  height: 150vh;
   @extend %image-background;
   font-family: 'Montserrat', sans-serif;
   .layer {
@@ -9,21 +9,45 @@
   }
   .logo{
     display: block;
+    width: 200px;
     margin: 0 auto;
-    padding-top: 50px;
-    width: 250px;
+    padding-top: 30px;
     margin-bottom: 50px;
   }
-  .register-form{
-    height: auto;
+  .title{
+    font-size: 24px;
+    color: $white;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .heroes{
+    display: block;
+    width: 90vw;
     margin: 0 auto;
+    text-align: center;
+    .hero{
+      display: inline-block;
+      background: url('../images/hero-test.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      border: none;
+      width: 70px;
+      height: 100px;
+      margin: 10px;
+      :active{
+        outline: none;
+      }
+      :focus{
+        outline: none;
+      }
+    }
     .input{
       display: block;
       width: 180px;
       height: auto;
       margin: 0 auto;
       position: relative;
-      margin-bottom: 40px;
+      margin-top: 40px;
       .input-text{
         display: inline-block;
         width: 100%;
@@ -65,13 +89,6 @@
         transition: 0.2s ease all;
       }
     }
-    .submit{
-      display: block;
-      @extend %button-white;
-      margin: auto;
-    }
-    .submit:hover{
-      @extend %button-white-hover;
-    }
   }
+
 }
