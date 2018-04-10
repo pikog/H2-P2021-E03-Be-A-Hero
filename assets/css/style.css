@@ -16,10 +16,10 @@
   display: inline-block;
   width: 100%;
   margin: 0 auto;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 300;
   background-color: transparent;
-  padding: 5px 5px 5px 5px;
+  padding: 5px 5px 12px 5px;
   border: none;
   border-bottom: 1px solid #fefefe;
   color: #fefefe;
@@ -30,15 +30,15 @@
   width: 100%;
   color: #fefefe;
   pointer-events: none;
-  top: -22px;
-  left: 5px;
+  top: -25px;
+  left: -2px;
   font-size: 16px;
   font-weight: 500; }
 
 .homepage-launch .logs .button a, .homepage-login .login-form .submit, .homepage-register .register-form .submit {
   width: 180px;
   padding-top: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
   background-color: #fefefe;
   text-transform: uppercase;
   border-radius: 18px;
@@ -105,7 +105,8 @@
   display: block;
   width: 100vw;
   height: auto;
-  font-family: 'Montserrat', sans-serif; }
+  font-family: 'Montserrat', sans-serif;
+  padding-bottom: 50px; }
   .homepage-register .register-form {
     height: auto;
     margin: 0 auto; }

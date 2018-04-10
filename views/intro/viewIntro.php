@@ -3,11 +3,11 @@
   <div class="logs">
     <div class="login button">
       <span class="login"> Already an hero ? </span>
-      <a href="#">Log In</a>
+      <a href="./login">Log In</a>
     </div>
     <div class="register button">
-      <span class="login"> New hero ? </span>
-      <a href="#">Register</a>
+      <span class="register"> New hero ? </span>
+      <a href="./register">Register</a>
     </div>
   </div>
 </section>
