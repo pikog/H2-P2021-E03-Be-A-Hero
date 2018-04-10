@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /* w3c */
 .homepage-launch, .homepage-login, .homepage-register, .homepage-hero-creation {
   position: relative;
@@ -31,10 +30,6 @@
   border: solid 1px #fefefe;
   color: #fefefe;
   transition-delay: 0.2s; }
-
-header  {
-  width: 100%;
-  height: 80px; }
 
 .homepage-launch {
   display: block;

@@ -13,6 +13,10 @@ if(isset($_GET['q']))
     {
         $page = 'logout';
     }
+    else if($_GET['q'] == 'register')
+    {
+        $page = 'register';
+    }
     else if($_GET['q'] == 'test')
     {
         $page = 'test';
