@@ -1,5 +1,5 @@
 <section class="homepage-login">
-    <img class="logo" src="./assets/images/logo.png" alt="logo Be A Hero">
+    <a href="./home"> <img class="logo" src="./assets/images/logo.png" alt="logo be a hero"> </a>
     <form class="login-form" action="login" method="post">
         <div class="input input-user">
             <input autocomplete="off" maxlength="30" class="input-text user" type="text" id="username" name="username" value="<?= $messages['values']['username'] ?>">

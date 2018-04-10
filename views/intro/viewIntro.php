@@ -1,5 +1,5 @@
 <section class="homepage-launch">
-    <img class="logo" src="./assets/images/logo.png" alt="logo Be A Hero">
+  <a href="./home"> <img class="logo" src="./assets/images/logo.png" alt="logo be a hero"> </a>
   <div class="logs">
     <div class="login button">
       <span class="login"> Already an hero ? </span>

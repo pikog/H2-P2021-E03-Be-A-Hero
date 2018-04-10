@@ -1,6 +1,6 @@
   <section class="homepage-register">
     <div class="layer"></div>
-    <img class="logo" src="./assets/images/logo.png" alt="logo Be A Hero">
+    <a href="./home"> <img class="logo" src="./assets/images/logo.png" alt="logo be a hero"> </a>
 
     <form class="register-form" action="register" method="post">
 
