@@ -21,5 +21,5 @@
       </div>
     </div>
 
-    <h1 class="events-success"><?= $numberEventsSuccess; ?> Victories</h1>
+    <h1 class="events-success"><?= $numberEventsSuccess; ?> Missions successful</h1>
 </section>
