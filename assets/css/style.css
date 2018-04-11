@@ -206,8 +206,10 @@ section {
       font-size: 14px; }
 
 .page-home {
+  height: auto;
   font-family: 'Montserrat', sans-serif;
-  color: #fefefe; }
+  color: #fefefe;
+  padding-bottom: 10vh; }
   .page-home .hero-infos {
     width: 80vw;
     margin: 0 auto;

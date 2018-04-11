@@ -1,7 +1,9 @@
 .page-home{
   @extend %image-background;
+  height: auto;
   font-family: 'Montserrat', sans-serif;
   color: #fefefe;
+  padding-bottom: 10vh;
   .logo{
     @extend %logo-large;
   }
