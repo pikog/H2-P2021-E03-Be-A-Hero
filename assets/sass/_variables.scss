@@ -16,6 +16,9 @@ $break-small: 375px;
   position: relative;
   background-color: #000000;
   background-image: $image;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
   opacity: 1;
   background-size: cover;
 }

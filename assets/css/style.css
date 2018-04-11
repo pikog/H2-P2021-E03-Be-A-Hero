@@ -3,6 +3,9 @@ html {
   position: relative;
   background-color: #000000;
   background-image: url("../images/background-heroes.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
   opacity: 1;
   background-size: cover; }
 
@@ -208,8 +211,7 @@ section {
 
 .page-home {
   font-family: 'Montserrat', sans-serif;
-  color: #fefefe;
-  height: 110vh; }
+  color: #fefefe; }
   .page-home .logo {
     margin-bottom: 8vh; }
   .page-home .hero-infos {
