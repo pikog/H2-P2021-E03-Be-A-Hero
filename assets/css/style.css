@@ -208,7 +208,7 @@ section {
 .page-home {
   font-family: 'Montserrat', sans-serif;
   color: #fefefe;
-  padding-bottom: 12vh; }
+  height: 110vh; }
   .page-home .logo {
     margin-bottom: 8vh; }
   .page-home .hero-infos {
@@ -252,7 +252,7 @@ section {
     margin: 0 auto;
     width: 50vw;
     max-width: 400px;
-    margin-bottom: 8vh; }
+    margin-bottom: 7vh; }
     .page-home .xp .meter {
       display: block;
       width: 100%;
