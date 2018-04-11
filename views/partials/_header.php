@@ -9,5 +9,9 @@
     <link rel="stylesheet" href="./assets/css/fontawesome-all.min.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <? if($page == "missions") { ?>
+        <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.js'></script>
+        <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.css' rel='stylesheet' />
+    <? } ?>
 </head>
 <body>

@@ -32,4 +32,7 @@ const geolocation = () =>
     }
 }
 
-geolocation()
+if(geolocationButton)
+{
+    geolocation()    
+}

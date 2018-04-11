@@ -1,6 +1,7 @@
 /* w3c */
-.homepage-launch, .homepage-login, .homepage-register, .page-404, .page-logout, .page-home, .page-geo {
+html {
   position: relative;
+  background-color: #000000;
   background-image: url("../images/background-heroes.png");
   opacity: 1;
   background-size: cover; }

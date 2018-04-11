@@ -1,4 +1,5 @@
 <section>
+    <div id="map"></div>
     <div class="events-list">
         <? foreach ($events as $event) { ?>
             <div class="event">
