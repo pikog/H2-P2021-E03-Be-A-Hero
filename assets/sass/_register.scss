@@ -75,6 +75,10 @@
       width: 27%;
       margin-right: 10px;
       margin-bottom: 5vh;
+      border-radius: 30px;
+    }
+    .active{
+      background-color: rgba(200,5,0,0.4);
     }
   }
 }

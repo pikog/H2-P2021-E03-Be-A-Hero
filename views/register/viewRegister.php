@@ -42,7 +42,7 @@
 
       <input class="hero-input" type="hidden" name="hero" value="<?= isset($messages['values']['hero']) ? $messages['values']['hero'] : 0; ?>">
 
-      <input type="submit" class="submit" name="submit" value="Submit">
+      <input type="submit" class="submit" name="submit" value="submit">
     </form>
 
   </section>

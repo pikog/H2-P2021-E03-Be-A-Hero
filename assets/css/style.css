@@ -163,7 +163,10 @@ section {
       display: inline-block;
       width: 27%;
       margin-right: 10px;
-      margin-bottom: 5vh; }
+      margin-bottom: 5vh;
+      border-radius: 30px; }
+    .homepage-register .hero-choice .active {
+      background-color: rgba(200, 5, 0, 0.4); }
 
 .page-404 {
   font-family: 'Montserrat', sans-serif;
