@@ -3,7 +3,7 @@
 $red: #DD2C2C;
 $white : #fefefe;
 $red-radial-gradient: radial-gradient(ellipse at center, rgba(46,5,0,1) 0%, rgba(46,5,0,1) 1%, rgba(26,3,0,1) 100%); /* w3c */
-
+$image : url("../images/background-heroes.png");
 
 // WIDTH
 
@@ -14,7 +14,7 @@ $break-small: 375px;
 
 %image-background{
   position: relative;
-  background: $red-radial-gradient;
+  background-image: $image;
   opacity: 1;
   background-size: cover;
 }

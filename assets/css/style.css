@@ -1,7 +1,7 @@
 /* w3c */
 .homepage-launch, .homepage-login, .homepage-register, .page-404, .page-logout, .page-home {
   position: relative;
-  background: radial-gradient(ellipse at center, #2e0500 0%, #2e0500 1%, #1a0300 100%);
+  background-image: url("../images/background-heroes.png");
   opacity: 1;
   background-size: cover; }
 
