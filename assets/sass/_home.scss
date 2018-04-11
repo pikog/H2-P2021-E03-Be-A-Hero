@@ -1,7 +1,7 @@
 .page-home{
   font-family: 'Montserrat', sans-serif;
   color: #fefefe;
-  padding-bottom: 12vh;
+  height: 110vh;
   .logo{
     @extend %logo-large;
     margin-bottom: 8vh;
@@ -54,7 +54,7 @@
     margin: 0 auto;
     width: 50vw;
     max-width: 400px;
-    margin-bottom: 8vh;
+    margin-bottom: 7vh;
     .meter{
       display: block;
       width: 100%;
