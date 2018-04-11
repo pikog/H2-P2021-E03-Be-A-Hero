@@ -118,8 +118,7 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+#Config file
+*.ini
 
 # End of https://www.gitignore.io/api/node,macos,windows,visualstudiocode
-
-#Config file
-config.ini

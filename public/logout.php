@@ -4,7 +4,7 @@
 
     if(isset($user))
     {
-        unset($_SESSION['user']);
+        session_destroy();
         header("Refresh: 5; url=./");
         echo new View('logout', 'Logout');
     }
