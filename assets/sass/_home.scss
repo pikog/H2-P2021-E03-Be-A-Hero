@@ -2,9 +2,10 @@
   @extend %image-background;
   font-family: 'Montserrat', sans-serif;
   color: #fefefe;
-  padding-bottom: 10vh;
+  padding-bottom: 12vh;
   .logo{
     @extend %logo-large;
+    margin-bottom: 8vh;
   }
   .hero-infos{
     width: 80vw;
@@ -54,7 +55,7 @@
     margin: 0 auto;
     width: 50vw;
     max-width: 400px;
-    margin-bottom: 10vh;
+    margin-bottom: 8vh;
     .meter{
       display: block;
       width: 100%;
