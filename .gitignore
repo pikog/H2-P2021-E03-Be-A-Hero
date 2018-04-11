@@ -121,4 +121,7 @@ $RECYCLE.BIN/
 #Config file
 *.ini
 
+#Cache photo
+cache/
+
 # End of https://www.gitignore.io/api/node,macos,windows,visualstudiocode

@@ -1,6 +1,7 @@
 <?    
     include_once './src/utils.php';
     include_once './src/User.php';
+    include_once './src/GeoPhoto.php';
 
     header('Content-type: application/json');
 
@@ -18,7 +19,7 @@
             {
                 if(!in_array($event->id, $user->eventsSuccess))
                 {
-                    if($event->distance < 1)
+                    if($event->distance < 0.2)
                     {
                         $event->canDo = 1;
                     }
@@ -26,6 +27,9 @@
                     {
                         $event->canDo = 0;
                     }
+
+                    $event->image = (new GeoPhoto($event->id))->getImage();
+
                     $events[] = $event;
                 }
             }

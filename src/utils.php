@@ -59,7 +59,7 @@
         $pdo = new DB();
         $pdo = $pdo->getInstance();
 
-        $req = $pdo->prepare("SELECT id, name, place, description, lat, lon, level_required, reward, (6371 * acos(cos(radians($lat)) * cos(radians(lat)) * cos(radians(lon) - radians($lon)) + sin( radians($lat)) * sin(radians(lat)))) AS distance FROM events HAVING distance < :max_distance AND level_required <= :level_required ORDER BY distance LIMIT 0, 20;");
+        $req = $pdo->prepare("SELECT id, name, place, description, lat, lon, level_required, reward, type, (6371 * acos(cos(radians($lat)) * cos(radians(lat)) * cos(radians(lon) - radians($lon)) + sin( radians($lat)) * sin(radians(lat)))) AS distance FROM events HAVING distance < :max_distance AND level_required <= :level_required ORDER BY distance LIMIT 0, 20;");
         $req->bindValue(':max_distance', $radius);
         $req->bindValue(':level_required', $level);
         $req->execute();
