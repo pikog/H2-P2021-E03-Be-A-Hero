@@ -9,6 +9,7 @@
   }
   .hero-infos{
     width: 80vw;
+    max-width: 500px;
     margin: 0 auto;
     margin-bottom: 7vh;
     .hero{
@@ -53,6 +54,7 @@
     display: block;
     margin: 0 auto;
     width: 50vw;
+    max-width: 400px;
     margin-bottom: 10vh;
     .meter{
       display: block;

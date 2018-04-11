@@ -12,7 +12,6 @@
       </div>
     </div>
 
-
     <!-- can i use = 97% on mobile -->
     <div class="xp">
       <meter class="meter" value="<?= $user['xp']; ?>" min="0" max="<?= $xpToNext; ?>"></meter>

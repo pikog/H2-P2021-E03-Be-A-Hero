@@ -67,7 +67,7 @@ section {
   font-family: 'Montserrat', sans-serif; }
   .homepage-launch .logs {
     display: block;
-    width: 80vw;
+    max-width: 200px;
     margin: 0 auto;
     text-align: center; }
     .homepage-launch .logs .button {
@@ -212,6 +212,7 @@ section {
   padding-bottom: 10vh; }
   .page-home .hero-infos {
     width: 80vw;
+    max-width: 500px;
     margin: 0 auto;
     margin-bottom: 7vh; }
     .page-home .hero-infos .hero {
@@ -249,6 +250,7 @@ section {
     display: block;
     margin: 0 auto;
     width: 50vw;
+    max-width: 400px;
     margin-bottom: 10vh; }
     .page-home .xp .meter {
       display: block;
