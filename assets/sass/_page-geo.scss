@@ -1,6 +1,13 @@
 .page-geo{
   font-family: 'Montserrat', sans-serif;
   color: #fefefe;
+  .top-bar{
+    margin-bottom: 0;
+  }
+  .logo{
+    @extend %logo-large;
+    margin-bottom: 6vh;
+  }
   .button{
     display: block;
     width: 150px;

@@ -9,7 +9,7 @@ html {
   opacity: 1;
   background-size: cover; }
 
-.homepage-launch .logo, .homepage-login .logo, .homepage-register .logo, .page-home .logo {
+.homepage-launch .logo, .homepage-login .logo, .homepage-register .logo, .page-home .logo, .page-geo .logo {
   display: block;
   margin: 0 auto;
   padding-top: 5vh;
@@ -293,7 +293,7 @@ section {
   height: 10vh;
   background-color: rgba(0, 0, 0, 0.4);
   padding: 3.5vh;
-  margin-bottom: 3vh; }
+  margin-bottom: 2vh; }
   .top-bar a {
     position: absolute;
     font-size: 18px;
@@ -307,6 +307,10 @@ section {
 .page-geo {
   font-family: 'Montserrat', sans-serif;
   color: #fefefe; }
+  .page-geo .top-bar {
+    margin-bottom: 0; }
+  .page-geo .logo {
+    margin-bottom: 6vh; }
   .page-geo .button {
     display: block;
     width: 150px;
