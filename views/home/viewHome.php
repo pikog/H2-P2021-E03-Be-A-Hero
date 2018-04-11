@@ -1,6 +1,7 @@
-<section class="page-home">
-    <a href="./home"> <img class="logo" src="./assets/images/logo.png" alt="logo be a hero"> </a>
 
+<section class="page-home">
+  <?php include './views/partials/_top-bar-home.php' ?>
+    <a href="./home"> <img class="logo" src="./assets/images/logo.png" alt="logo be a hero"> </a>
     <div class="hero-infos">
       <img class="hero" src="./assets/images/heroes/<?= $user['hero']; ?>.png" alt="hero">
       <div class="infos">

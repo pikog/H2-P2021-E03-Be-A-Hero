@@ -1,0 +1,16 @@
+.page-geo{
+  @extend %image-background;
+  font-family: 'Montserrat', sans-serif;
+  color: #fefefe;
+  .button{
+    display: block;
+    width: 150px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 10px;
+    background-color: #fefefe;
+    border-radius: 15px;
+    text-decoration: none;
+    color: #000;
+  }
+}
