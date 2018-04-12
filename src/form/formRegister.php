@@ -72,7 +72,7 @@
                 $messages['errors']['hero'] = 'Invalid hero';
                 $messages['values']['hero'] = 0;
             }
-            else if(!in_array(getHeroes(), $hero))
+            else if(!in_array($hero, getHeroes()))
             {
                 $messages['errors']['hero'] = 'Invalid hero';
                 $messages['values']['hero'] = 0;

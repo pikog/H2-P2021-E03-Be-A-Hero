@@ -27,8 +27,6 @@
 
       <h2 class="title"> Choose Your Hero !</h2>
 
-      <!-- <input type="hidden" value=""/> -->
-
       <div class="input input-hero-name">
         <input autocomplete="off" maxlength="20" class="input-text hero-name" type="text" name="hero-name" value="">
         <label> Hero Name <label>
@@ -36,10 +34,10 @@
 
       <div class="hero-choice">
         <? foreach ($heroes as $hero) { ?>
-          <img class="hero" src="./assets/images/heroes/<?= $hero ?>.png" alt="hero-<?= $hero ?>">
+          <img class="hero" src="./assets/images/heroes/<?= $hero ?>.png" data-hero-id="<?= $hero ?>">
         <? } ?>
       </div>
-
+      
       <input class="hero-input" type="hidden" name="hero" value="<?= isset($messages['values']['hero']) ? $messages['values']['hero'] : 0; ?>">
 
       <input type="submit" class="submit" name="submit" value="submit">
