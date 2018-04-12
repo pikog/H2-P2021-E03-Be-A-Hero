@@ -50,4 +50,14 @@
             $this->level = intval($result->level);
             $this->reward = intval($result->reward);
         }
+
+        public function delete()
+        {
+            $pdo = new DB();
+            $pdo = $pdo->getInstance();
+    
+            $req = $pdo->prepare('DELETE FROM events WHERE id = :id');
+            $req->bindValue(':id', $this->id);
+            $req->execute();
+        }
     }

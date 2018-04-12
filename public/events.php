@@ -23,21 +23,18 @@
             $events = [];
             foreach ($eventsNearby as $event)
             {
-                if(!in_array($event->id, $user->eventsSuccess))
+                if($event->distance <= PARAM_MAX_DISTANCE)
                 {
-                    if($event->distance <= PARAM_MAX_DISTANCE)
-                    {
-                        $event->canDo = 1;
-                    }
-                    else
-                    {
-                        $event->canDo = 0;
-                    }
-
-                    $event->image = (new GeoPhoto($event->id))->getImage();
-
-                    $events[] = $event;
+                    $event->canDo = 1;
                 }
+                else
+                {
+                    $event->canDo = 0;
+                }
+
+                $event->image = (new GeoPhoto($event->id))->getImage();
+
+                $events[] = $event;
             }
             echo json_encode(['events' => $events]);
         }

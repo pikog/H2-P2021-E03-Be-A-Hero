@@ -52,22 +52,43 @@ if(geolocationButton)
 
 const getEvents = () =>
 {
-    const options = {
-        method: 'GET'
-    }
+    const url = `events?user=${user.id}&lat=${coords.latitude}&lon=${coords.longitude}`
+    if(window.fetch)
+    {
+        const options = {
+            method: 'GET'
+        }
 
-    fetch(`events?user=${user.id}&lat=${coords.latitude}&lon=${coords.longitude}`, options)
-        .then((res) =>
-        {
-            return res.json()
-        })
-        .then((res) =>
-        {
-            if(res.events)
+        fetch(url, options)
+            .then((res) =>
             {
-                updateEvents(res.events)
+                return res.json()
+            })
+            .then((res) =>
+            {
+                if(res.events)
+                {
+                    updateEvents(res.events)
+                }
+            })
+    }
+    else
+    {
+        const xmlhttp = new XMLHttpRequest()
+        xmlhttp.onreadystatechange = () =>
+        {
+            if (this.readyState == 4 && this.status == 200)
+            {
+                const res = JSON.parse(this.responseText)
+                if(res.events)
+                {
+                    updateEvents(res.events)
+                }
             }
-        })
+        }
+        xmlhttp.open("GET", url, true)
+        xmlhttp.send()
+    }
 }
 
 let mapElem = null
@@ -90,7 +111,6 @@ let playerMarker = null
 const markers = []
 const genMap = () =>
 {
-    console.log(coords)
     mapboxgl.accessToken = 'pk.eyJ1IjoicGlrb2ciLCJhIjoiY2pmdmdoNXJjMWE3dTJ4cXF5NTR6cGp4YiJ9.kBW2FE_mxmr_g1EOJTAT0g';
     map = new mapboxgl.Map({
         container: 'map',
@@ -157,7 +177,7 @@ const popinEvent = (event) =>
     popinContent.innerHTML = '<span class="close">&times;</span><img src=""><div class="popin-body"><span class="xp"></span><h3></h3><p class="address"></p><p class="description"></p></div><a class="popin-button" href="#"></a>';
 
     popinContent.querySelector('h3').textContent = event.name
-    popinContent.querySelector('.address').textContent = event.place
+    popinContent.querySelector('.address').textContent = event.address
     popinContent.querySelector('.xp').textContent = `+${event.reward}xp`
     popinContent.querySelector('.description').textContent = event.description
     popinContent.querySelector('img').src = `./${event.image}`
@@ -229,25 +249,49 @@ const popinError = (error) =>
 
 const validMission = (event) =>
 {
-    const options = {
-        method: 'GET'
+    const url = `check-mission?user=${user.id}&lat=${coords.latitude}&lon=${coords.longitude}&event=${event.id}`
+    if(window.fetch)
+    {
+        const options = {
+            method: 'GET'
+        }
+    
+        fetch(url, options)
+            .then((res) =>
+            {
+                return res.json()
+            })
+            .then((res) =>
+            {
+                if(res.ok)
+                {
+                    popinValidMission(res.level, res.level_up)
+                }
+                else
+                {
+                    popinError(res.error)
+                }
+            })
     }
-    console.log(event)
-
-    fetch(`check-mission?user=${user.id}&lat=${coords.latitude}&lon=${coords.longitude}&event=${event.id}`, options)
-        .then((res) =>
+    else
+    {
+        const xmlhttp = new XMLHttpRequest()
+        xmlhttp.onreadystatechange = () =>
         {
-            return res.json()
-        })
-        .then((res) =>
-        {
-            if(res.ok)
+            if (this.readyState == 4 && this.status == 200)
             {
-                popinValidMission(res.level, res.level_up);
+                const res = JSON.parse(this.responseText)
+                if(res.ok)
+                {
+                    popinValidMission(res.level, res.level_up)
+                }
+                else
+                {
+                    popinError(res.error)
+                }
             }
-            else
-            {
-                popinError(res.error)
-            }
-        })
+        }
+        xmlhttp.open("GET", url, true)
+        xmlhttp.send()
+    }
 }

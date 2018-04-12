@@ -38,7 +38,7 @@
             $pdo = new DB();
             $pdo = $pdo->getInstance();
     
-            $req = $pdo->prepare('INSERT INTO users (username, password, hero_name, hero, events_success) VALUES (:username, :password, :hero_name, :hero)');
+            $req = $pdo->prepare('INSERT INTO users (username, password, hero_name, hero) VALUES (:username, :password, :hero_name, :hero)');
             $req->bindValue(':username', $username);
             $req->bindValue(':password', password_hash($password, PASSWORD_DEFAULT));
             $req->bindValue(':hero_name', $heroName);
@@ -126,16 +126,13 @@
             if($this->lastGeolocLat != 0 && $this->lastGeolocLon != 0)
             {
                 $distance = distanceLatLon($lat, $lon, $this->lastGeolocLat, $this->lastGeolocLon);
-                error_log("$lat, $lon, $this->lastGeolocLat, $this->lastGeolocLon");
                 $time = (time() - $this->lastGeoloc) / 3600;
                 $speed = $distance / $time;
                 if($speed > 300)
                 {
                     $cheat = true;
                 }
-                error_log("Temps: $time, Distance: $distance, Speed: $speed, Cheat: $cheat");
             }
-            error_log($cheat);
             return $cheat;
         }
 

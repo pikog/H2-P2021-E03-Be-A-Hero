@@ -68,3 +68,18 @@
         }
         return $result;
     }
+
+    function resetGeophoto()
+    {
+        $folder = 'cache/geophotos/';
+        $basePath = './';
+
+        $files = glob($basePath . $folder . '*');
+        foreach($files as $file)
+        {
+            if(is_file($file))
+            {
+                unlink($file);
+            }
+        }
+    }

@@ -7,7 +7,7 @@ class GeoPhoto
 
     private $id;
     private $heading;
-    private $place;
+    private $address;
 
     public function __construct($id)
     {
@@ -19,19 +19,19 @@ class GeoPhoto
         $pdo = new DB();
         $pdo = $pdo->getInstance();
 
-        $req = $pdo->prepare('SELECT place, heading FROM events WHERE id = :id');
+        $req = $pdo->prepare('SELECT address, heading FROM events WHERE id = :id');
         $req->bindValue(':id', $this->id);
         $req->execute();
 
         $result = $req->fetch();
-        $this->heading = intval($result->heading);
-        $this->place = $result->place;
+        $this->heading = floatval($result->heading);
+        $this->address = $result->address;
     }
 
     public function getImageFromAPI()
     {
         $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, 'https://maps.googleapis.com/maps/api/streetview?location=' . urlencode($this->place) . '&fov=120&heading=' . $this->heading .'&size=480x100&key=' . API_GMAPS);
+        curl_setopt($curl, CURLOPT_URL, 'https://maps.googleapis.com/maps/api/streetview?location=' . urlencode($this->address) . '&fov=120&heading=' . $this->heading .'&size=480x100&key=' . API_GMAPS);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         $result = curl_exec($curl);
         curl_close($curl);

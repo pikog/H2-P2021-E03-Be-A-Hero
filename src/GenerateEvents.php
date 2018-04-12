@@ -1,5 +1,6 @@
 <?
     include_once './src/DB.php';
+    include_once './src/utils.php';
 
     class GenerateEvents
     {
@@ -27,6 +28,7 @@
 
             $req = $pdo->prepare('DELETE FROM events');
             $req->execute();
+            resetGeophoto();
         }
 
         private function findRandomPlace($notIds)
@@ -85,10 +87,11 @@
             $pdo = $pdo->getInstance();
 
             $pdo->beginTransaction();
-            $req = $pdo->prepare('INSERT INTO events (name, address, heading, type, lat, lon, description, level, reward) VALUES (:name, :address, :heading, :type, :lat, :lon, :description, :level, :reward)');
+            $req = $pdo->prepare('INSERT INTO events (place, name, address, heading, type, lat, lon, description, level, reward) VALUES (:place, :name, :address, :heading, :type, :lat, :lon, :description, :level, :reward)');
 
             foreach ($this->events as $event)
             {
+                $req->bindValue(':place', $event['place']->id);
                 $req->bindValue(':name', $event['script']->name . ' ' . $event['place']->name);
                 $req->bindValue(':address', $event['place']->address);
                 $req->bindValue(':heading', $event['place']->heading);

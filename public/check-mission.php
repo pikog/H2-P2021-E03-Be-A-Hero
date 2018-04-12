@@ -22,7 +22,7 @@
                 if($distance <= PARAM_MAX_DISTANCE)
                 {
                     $result = $user->validMission($event->reward);
-
+                    $event->delete();
                     echo json_encode(array_merge(['ok' => 'good'], $result));
                 }
                 else
