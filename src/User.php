@@ -157,7 +157,7 @@
 
             $result = $req->fetch();
 
-            return ['level' => $this->level, 'level_up' => $levelUp];
+            return ['reward' => $reward, 'level' => $this->level, 'level_up' => $levelUp];
         }
 
         private function addXp($xp)

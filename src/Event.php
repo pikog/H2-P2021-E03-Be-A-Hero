@@ -1,8 +1,6 @@
 <?
     include_once './src/config.php';
     include_once './src/DB.php';
-    include_once './src/Place.php';
-    include_once './src/Script.php';
 
     class Event
     {

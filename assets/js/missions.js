@@ -174,6 +174,8 @@ popinContent.addEventListener('click', (e) =>
 
 const popinEvent = (event) =>
 {
+    popin.classList.remove('error')
+    popin.classList.remove('valid')
     popinContent.innerHTML = '<span class="close">&times;</span><img src=""><div class="popin-body"><span class="xp"></span><h3></h3><p class="address"></p><p class="description"></p></div><a class="popin-button" href="#"></a>';
 
     popinContent.querySelector('h3').textContent = event.name
@@ -213,11 +215,22 @@ const popinEvent = (event) =>
     })
 }
 
-const popinValidMission = (level, level_up) =>
+const popinValidMission = (level, level_up, reward) =>
 {
-    popinContent.innerHTML = '<span class="close">&times;</span><div class="popin-body valid"><h3></h3></div>';
+    popin.classList.remove('error')
+    popin.classList.add('valid')
+    popinContent.innerHTML = '<span class="close">&times;</span><div class="popin-body"><h3></h3><p class="reward"></p><p class="level-up"></p></div>';
 
-    popinContent.querySelector('h3').textContent = 'Congratulation, you are a hero!' + level + '' + level_up
+    popinContent.querySelector('h3').innerHTML = 'Congratulation, you are a <span class="hero">hero</span>!'
+    popinContent.querySelector('.reward').innerHTML = `Your reward: <b>+${reward}xp</b>`
+    if(level_up)
+    {
+        popinContent.querySelector('.level-up').innerHTML = `You passed level <b>${level}</b>`
+    }
+    else
+    {
+        popinContent.removeChild(popinContent.querySelector('.level-up'))
+    }
 
     popin.style.display = 'block'
 
@@ -233,7 +246,9 @@ const popinValidMission = (level, level_up) =>
 
 const popinError = (error) =>
 {
-    popinContent.innerHTML = '<span class="close">&times;</span><div class="popin-body error"><h3></h3></div>';
+    popin.classList.remove('valid')
+    popin.classList.add('error')
+    popinContent.innerHTML = '<span class="close">&times;</span><div class="popin-body"><h3></h3></div>';
     
     popinContent.querySelector('h3').textContent = error
 
@@ -259,13 +274,15 @@ const validMission = (event) =>
         fetch(url, options)
             .then((res) =>
             {
+                console.log(res)
                 return res.json()
             })
             .then((res) =>
             {
                 if(res.ok)
                 {
-                    popinValidMission(res.level, res.level_up)
+
+                    popinValidMission(res.level, res.level_up, res.reward)
                 }
                 else
                 {
@@ -284,6 +301,7 @@ const validMission = (event) =>
                 if(res.ok)
                 {
                     popinValidMission(res.level, res.level_up)
+                    getEvents()
                 }
                 else
                 {

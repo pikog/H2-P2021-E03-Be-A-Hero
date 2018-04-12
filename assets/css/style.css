@@ -391,7 +391,7 @@ section {
         height: auto;
         border-radius: 7px 7px 0 0; }
       .page-mission .popin .popin-content .popin-body {
-        padding: 5px 10px 10px; }
+        padding: 7px 10px 10px; }
         .page-mission .popin .popin-content .popin-body h3 {
           font-weight: bold;
           text-transform: uppercase;
@@ -420,5 +420,24 @@ section {
         .page-mission .popin .popin-content .popin-button.disable {
           background: #941616;
           cursor: not-allowed; }
+    .page-mission .popin.valid, .page-mission .popin.error {
+      text-align: center; }
+      .page-mission .popin.valid .popin-body, .page-mission .popin.error .popin-body {
+        padding: 20px 10px; }
+      .page-mission .popin.valid .close, .page-mission .popin.error .close {
+        color: #000000; }
+    .page-mission .popin.error {
+      color: #941616; }
+    .page-mission .popin.valid b {
+      font-weight: bold;
+      color: #489416; }
+    .page-mission .popin.valid h3 {
+      margin-bottom: 15px;
+      font-size: 1.2rem; }
+      .page-mission .popin.valid h3 .hero {
+        color: #941616;
+        font-size: 1.6rem; }
+    .page-mission .popin.valid p:not(:last-child) {
+      margin-bottom: 12px; }
 
 /*# sourceMappingURL=style.css.map */
