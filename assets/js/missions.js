@@ -2,7 +2,7 @@
 const geolocationButton = document.querySelector('a.button-geolocation')
 let geolocalised = false
 let coords = null
-let id = 5
+console.log(user)
 const geolocation = () =>
 {
     if(navigator.geolocation)
@@ -56,7 +56,7 @@ const getEvents = () =>
         method: 'GET'
     }
 
-    fetch(`events?user=${id}&lat=${coords.latitude}&lon=${coords.longitude}`, options)
+    fetch(`events?user=${user.id}&lat=${coords.latitude}&lon=${coords.longitude}`, options)
         .then((res) =>
         {
             return res.json()
@@ -96,16 +96,15 @@ const genMap = () =>
         container: 'map',
         style: 'mapbox://styles/mapbox/dark-v9',
         center: [coords.longitude, coords.latitude],
-        //center: [15, 15],
         zoom: 15,
         pitch: 60
     })
     const playerElem = document.createElement('div')
     playerElem.classList.add('marker', 'player')
+    playerElem.style.backgroundImage = `url('./assets/images/heroes/${user.hero}.png')`
     playerMarker = new mapboxgl.Marker(playerElem)
     playerMarker.setLngLat([coords.longitude, coords.latitude])
     playerMarker.anchor = 'bottom'
-    //playerMarker.setLngLat([15, 15])
     playerMarker.addTo(map)
 }
 
@@ -235,7 +234,7 @@ const validMission = (event) =>
     }
     console.log(event)
 
-    fetch(`check-mission?user=${id}&lat=${coords.latitude}&lon=${coords.longitude}&event=${event.id}`, options)
+    fetch(`check-mission?user=${user.id}&lat=${coords.latitude}&lon=${coords.longitude}&event=${event.id}`, options)
         .then((res) =>
         {
             return res.json()
