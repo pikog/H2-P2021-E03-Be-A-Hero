@@ -32,7 +32,7 @@
             }
             else
             {
-                echo json_encode(['error' => 'Your cheating!']);
+                echo json_encode(['error' => 'You cheating!']);
             }
         }
         else

@@ -104,7 +104,7 @@
             $pdo = new DB();
             $pdo = $pdo->getInstance();
     
-            $req = $pdo->prepare('UPDATE users SET last_geoloc = CURRENT_DATE(), last_geoloc_lat = :lat, last_geoloc_lon = :lon WHERE id = :id');
+            $req = $pdo->prepare('UPDATE users SET last_geoloc = NOW(), last_geoloc_lat = :lat, last_geoloc_lon = :lon WHERE id = :id');
             $req->bindValue(':lat', $lat);
             $req->bindValue(':lon', $lon);
             $req->bindValue(':id', $this->id);
@@ -123,10 +123,21 @@
          */
         public function checkCheat($lat, $lon)
         {
-            $distance = distanceLatLon($lat1, $lon1, $this->lastGeolocLat, $this->lastGeolocLon);
-            $time = time() - $this->lastGeoloc;
-            $speed = ($distance / $time)*18/5;
-            return $speed > 300 ? true : false;
+            $cheat = false;
+            if($this->lastGeolocLat != 0 && $this->lastGeolocLon != 0)
+            {
+                $distance = distanceLatLon($lat, $lon, $this->lastGeolocLat, $this->lastGeolocLon);
+                error_log("$lat, $lon, $this->lastGeolocLat, $this->lastGeolocLon");
+                $time = (time() - $this->lastGeoloc) / 3600;
+                $speed = $distance / $time;
+                if($speed > 300)
+                {
+                    $cheat = true;
+                }
+                error_log("Temps: $time, Distance: $distance, Speed: $speed, Cheat: $cheat");
+            }
+            error_log($cheat);
+            return $cheat;
         }
 
         /**

@@ -69,22 +69,13 @@
     }
 
     function distanceLatLon($lat1, $lon1, $lat2, $lon2) {
-        $earth_radius = 6378137;
-        $rlo1 = deg2rad($lon1);
-        $rla1 = deg2rad($lat1);
-        $rlo2 = deg2rad($lon2);
-        $rla2 = deg2rad($lat2);
-        $dlo = ($rlo2 - $rlo1) / 2;
-        $dla = ($rla2 - $rla1) / 2;
-        $a = (sin($dla) * sin($dla)) + cos($rla1) * cos($rla2) * (sin($dlo) * sin($dlo));
-        $d = 2 * atan2(sqrt($a), sqrt(1 - $a));
-        $meter = ($earth_radius * $d) / 1000;
-        return $meter;
+        $calc = (6371 * acos(cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($lon2) - deg2rad($lon1)) + sin( deg2rad($lat1)) * sin(deg2rad($lat2))));
+        return $calc;
     }
 
     function calcXpToNext($level)
     {
-        return 100 * pow(2, $level);
+        return 100*($level+1);
     }
 
     function getHeroes()

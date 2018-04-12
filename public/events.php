@@ -14,7 +14,10 @@
             $lat = floatval($_GET['lat']);
             $lon = floatval($_GET['lon']);
 
-            $user->setLastGeolocation($lat, $lon);
+            if(!$user->checkCheat($lat, $lon))
+            {
+                $user->setLastGeolocation($lat, $lon);
+            }
 
             $eventsNearby = eventsNearby($lat, $lon, $user->level, 20);
             $events = [];
@@ -22,7 +25,7 @@
             {
                 if(!in_array($event->id, $user->eventsSuccess))
                 {
-                    if($event->distance <= PARAM_MAX_DISTANCE / 1000)
+                    if($event->distance <= PARAM_MAX_DISTANCE)
                     {
                         $event->canDo = 1;
                     }
