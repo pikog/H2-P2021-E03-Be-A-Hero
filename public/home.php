@@ -7,8 +7,7 @@
     {
         $data = [
             'user' => get_object_vars($user),
-            'xpToNext' => calcXpToNext($user->level),
-            'numberEventsSuccess' => count($user->eventsSuccess)
+            'xpToNext' => calcXpToNext($user->level)
         ];
         echo new View('home', 'Home', $data);
     }

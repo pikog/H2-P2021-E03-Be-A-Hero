@@ -1,37 +1,35 @@
 <?
     include_once './src/config.php';
     include_once './src/DB.php';
-    include_once './src/utils.php';
+    include_once './src/Place.php';
+    include_once './src/Script.php';
 
     class Event
     {
         public $id;
         public $name;
-        public $place;
-        public $description;
+        public $address;
+        public $heading;
+        public $type;
         public $lat;
         public $lon;
+        public $description;
         public $level;
         public $reward;
-        public $type;
-        public $heading;
 
         /**
          * Initialize an existing user with an username
          */
-        public function __construct($id = null)
+        public function __construct($id)
         {
-            if(isset($id))
-            {
-                $this->id = $id;
-                $this->getEventInfo();
-            }      
+            $this->id = $id;
+            $this->getInfo();   
         }
 
         /**
          * Get user information from database
          */
-        private function getEventInfo()
+        private function getInfo()
         {
             $pdo = new DB();
             $pdo = $pdo->getInstance();
@@ -43,13 +41,13 @@
             $result = $req->fetch();
 
             $this->name = $result->name;
-            $this->place = $result->place;
-            $this->description = $result->description;
+            $this->address = $result->address;
+            $this->heading = floatval($result->heading);
+            $this->type = intval($result->type);
             $this->lat = floatval($result->lat);
             $this->lon = floatval($result->lon);
-            $this->level = intval($result->level_required);
+            $this->description = $result->description;
+            $this->level = intval($result->level);
             $this->reward = intval($result->reward);
-            $this->type = intval($result->type);
-            $this->heading = intval($result->heading);
         }
     }

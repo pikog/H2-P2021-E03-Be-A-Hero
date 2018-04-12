@@ -38,12 +38,11 @@
             $pdo = new DB();
             $pdo = $pdo->getInstance();
     
-            $req = $pdo->prepare('INSERT INTO users (username, password, hero_name, hero, events_success) VALUES (:username, :password, :hero_name, :hero, :events_success)');
+            $req = $pdo->prepare('INSERT INTO users (username, password, hero_name, hero, events_success) VALUES (:username, :password, :hero_name, :hero)');
             $req->bindValue(':username', $username);
             $req->bindValue(':password', password_hash($password, PASSWORD_DEFAULT));
             $req->bindValue(':hero_name', $heroName);
             $req->bindValue(':hero', $hero);
-            $req->bindValue(':events_success', '[]');
     
             $status = $req->execute();
 
@@ -92,7 +91,7 @@
             $this->hero = intval($result->hero);
             $this->level = $result->level;
             $this->xp = $result->xp;
-            $this->eventsSuccess = json_decode($result->events_success);
+            $this->eventsSuccess = intval($result->events_success);
             $this->isAdmin = boolval($result->is_admin);
         }
 
@@ -144,9 +143,8 @@
          * Valid a mission
          * @return boolean return true if the mission is validated
          */
-        public function validMission($eventId, $reward)
+        public function validMission($reward)
         {
-            $this->eventsSuccess[] = $eventId;
             $pdo = new DB();
             $pdo = $pdo->getInstance();
 
@@ -154,8 +152,7 @@
             $this->addXp($reward);
             $levelUp = $this->level > $oldLevel;
 
-            $req = $pdo->prepare('UPDATE users SET events_success = :events_success, level = :level, xp = :xp WHERE id = :id');
-            $req->bindValue(':events_success', json_encode($this->eventsSuccess));
+            $req = $pdo->prepare('UPDATE users SET events_success = events_success + 1, level = :level, xp = :xp WHERE id = :id');
             $req->bindValue(':level', $this->level);
             $req->bindValue(':xp', $this->xp);
             $req->bindValue(':id', $this->id);

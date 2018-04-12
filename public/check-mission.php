@@ -21,7 +21,7 @@
                 $distance = distanceLatLon($lat, $lon, $event->lat, $event->lon);
                 if($distance <= PARAM_MAX_DISTANCE)
                 {
-                    $result = $user->validMission($event->id, $event->reward);
+                    $result = $user->validMission($event->reward);
 
                     echo json_encode(array_merge(['ok' => 'good'], $result));
                 }

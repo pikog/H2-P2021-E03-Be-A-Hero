@@ -12,7 +12,6 @@
       </div>
     </div>
 
-    <!-- can i use = 97% on mobile -->
     <div class="xp">
       <meter class="meter" value="<?= $user['xp']; ?>" min="0" max="<?= $xpToNext; ?>"></meter>
       <div class="xp-text">
@@ -21,5 +20,5 @@
       </div>
     </div>
 
-    <h1 class="events-success"><?= $numberEventsSuccess; ?> Missions successful</h1>
+    <h1 class="events-success"><?= $user['eventsSuccess']; ?> Mission<?= $user['eventsSuccess'] > 1 ? 's' : ''; ?> successful</h1>
 </section>

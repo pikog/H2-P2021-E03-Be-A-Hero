@@ -4,34 +4,11 @@
     //Utils fonctions
 
     /**
-     * Return true if email is valid
-     */
-    function validEmail($email)
-    {
-        return filter_var($email, FILTER_VALIDATE_EMAIL);
-    }
-
-    /**
      * Return true if username is valid
      */
     function validUsername($username)
     {
         return ctype_alnum(str_replace(['_', '-'], '', $username));
-    }
-
-    /**
-     * Return true if email already exist in database
-     */
-    function existEmail($email)
-    {
-        $pdo = new DB();
-        $pdo = $pdo->getInstance();
-
-        $req = $pdo->prepare('SELECT id FROM users WHERE email = :email');
-        $req->bindValue(':email', $email);
-        $req->execute();
-
-        return !empty($req->fetch());
     }
 
     /**
@@ -59,9 +36,9 @@
         $pdo = new DB();
         $pdo = $pdo->getInstance();
 
-        $req = $pdo->prepare("SELECT id, name, place, description, lat, lon, level_required, reward, type, (6371 * acos(cos(radians($lat)) * cos(radians(lat)) * cos(radians(lon) - radians($lon)) + sin( radians($lat)) * sin(radians(lat)))) AS distance FROM events HAVING distance < :max_distance AND level_required <= :level_required ORDER BY distance LIMIT 0, 20;");
+        $req = $pdo->prepare("SELECT id, name, address, heading, type, lat, lon, description, level, reward, (6371 * acos(cos(radians($lat)) * cos(radians(lat)) * cos(radians(lon) - radians($lon)) + sin( radians($lat)) * sin(radians(lat)))) AS distance FROM events HAVING distance < :max_distance AND level <= :level ORDER BY distance LIMIT 0, 20;");
         $req->bindValue(':max_distance', $radius);
-        $req->bindValue(':level_required', $level);
+        $req->bindValue(':level', $level);
         $req->execute();
         $results = $req->fetchAll();
 
