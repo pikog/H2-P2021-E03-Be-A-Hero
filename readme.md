@@ -1,7 +1,7 @@
 
 # Welcome to Be A Hero
 
-Hi! I'm a web video-game for smartphones, developed by **Team 3** of **P2021** for an intensive week at **HETIC**. If you want to learn more about us, follow our school on [Twitter](https://twitter.com/hetic?lang=fr) !
+Hi! I'm a web video-game for smartphone, developed by **Team 3** of **P2021** for an intensive week at **HETIC**. If you want to learn more about us, follow our school on [Twitter](https://twitter.com/hetic?lang=fr) !
 
 # :zap: How to launch me ?
 
