@@ -15,3 +15,5 @@ define('DB_PASS', isset($ini['DB']['PASS']) ? $ini['DB']['PASS'] : '');
 define('API_GMAPS', isset($ini['API']['MAPS']) ? $ini['API']['MAPS'] : '');
 
 define('CACHE_GEOPHOTO', isset($ini['CACHE']['GEOPHOTO']) ? $ini['CACHE']['GEOPHOTO'] : 30);
+
+define('PARAM_MAX_DISTANCE', isset($ini['PARAM']['MAX_DISTANCE']) ? $ini['PARAM']['MAX_DISTANCE'] : 200);

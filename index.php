@@ -25,6 +25,10 @@ if(isset($_GET['q']))
     {
         $page = 'events';
     }
+    else if($_GET['q'] == 'check-mission')
+    {
+        $page = 'check-mission';
+    }
     else if($_GET['q'] == 'test')
     {
         $page = 'test';

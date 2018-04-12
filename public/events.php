@@ -1,5 +1,6 @@
 <?    
     include_once './src/utils.php';
+    include_once './src/config.php';
     include_once './src/User.php';
     include_once './src/GeoPhoto.php';
 
@@ -13,13 +14,15 @@
             $lat = floatval($_GET['lat']);
             $lon = floatval($_GET['lon']);
 
+            $user->setLastGeolocation($lat, $lon);
+
             $eventsNearby = eventsNearby($lat, $lon, $user->level, 20);
             $events = [];
             foreach ($eventsNearby as $event)
             {
                 if(!in_array($event->id, $user->eventsSuccess))
                 {
-                    if($event->distance < 0.2)
+                    if($event->distance <= PARAM_MAX_DISTANCE / 1000)
                     {
                         $event->canDo = 1;
                     }

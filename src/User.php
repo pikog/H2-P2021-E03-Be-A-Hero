@@ -94,6 +94,76 @@
             $this->xp = $result->xp;
             $this->eventsSuccess = json_decode($result->events_success);
             $this->isAdmin = boolval($result->is_admin);
+        }
 
+        /**
+         * Set last geolocation
+         */
+        public function setLastGeolocation($lat, $lon)
+        {
+            $pdo = new DB();
+            $pdo = $pdo->getInstance();
+    
+            $req = $pdo->prepare('UPDATE users SET last_geoloc = CURRENT_DATE(), last_geoloc_lat = :lat, last_geoloc_lon = :lon WHERE id = :id');
+            $req->bindValue(':lat', $lat);
+            $req->bindValue(':lon', $lon);
+            $req->bindValue(':id', $this->id);
+            $req->execute();
+
+            $result = $req->fetch();
+
+            $this->lastGeoloc = time();
+            $this->lastGeolocLat = $lat;
+            $this->lastGeolocLon = $lon;
+        }
+
+        /**
+         * Set last geolocation
+         * @return boolean return true if the player cheat
+         */
+        public function checkCheat($lat, $lon)
+        {
+            $distance = distanceLatLon($lat1, $lon1, $this->lastGeolocLat, $this->lastGeolocLon);
+            $time = time() - $this->lastGeoloc;
+            $speed = ($distance / $time)*18/5;
+            return $speed > 300 ? true : false;
+        }
+
+        /**
+         * Valid a mission
+         * @return boolean return true if the mission is validated
+         */
+        public function validMission($eventId, $reward)
+        {
+            $this->eventsSuccess[] = $eventId;
+            $pdo = new DB();
+            $pdo = $pdo->getInstance();
+
+            $oldLevel = $this->level;
+            $this->addXp($reward);
+            $levelUp = $this->level > $oldLevel;
+
+            $req = $pdo->prepare('UPDATE users SET events_success = :events_success, level = :level, xp = :xp WHERE id = :id');
+            $req->bindValue(':events_success', json_encode($this->eventsSuccess));
+            $req->bindValue(':level', $this->level);
+            $req->bindValue(':xp', $this->xp);
+            $req->bindValue(':id', $this->id);
+            $req->execute();
+
+            $result = $req->fetch();
+
+            return ['level' => $this->level, 'level_up' => $levelUp];
+        }
+
+        private function addXp($xp)
+        {
+            $this->xp += $xp;
+            $xpToNext = calcXpToNext($this->level);
+            while($this->xp > $xpToNext)
+            {
+                $this->xp -= $xpToNext;
+                $this->level++;
+                $xpToNext = calcXpToNext($this->level);
+            }
         }
     }
