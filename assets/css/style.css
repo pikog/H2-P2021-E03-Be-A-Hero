@@ -326,6 +326,15 @@ section {
       cursor: not-allowed; }
   .page-mission.geolocalised {
     position: relative; }
+    .page-mission.geolocalised .logo {
+      position: absolute;
+      z-index: 3;
+      top: 10vh;
+      left: 0;
+      height: 8vh; }
+      .page-mission.geolocalised .logo img {
+        height: 100%;
+        width: auto; }
     .page-mission.geolocalised #map {
       position: absolute;
       top: 0;
@@ -350,7 +359,7 @@ section {
   .page-mission .popin {
     display: none;
     position: fixed;
-    z-index: 3;
+    z-index: 4;
     left: 0;
     top: 0;
     width: 100%;

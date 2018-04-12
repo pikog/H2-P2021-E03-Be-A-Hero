@@ -37,6 +37,19 @@
     &.geolocalised
     {
         position: relative;
+        .logo
+        {
+            position: absolute;
+            z-index: 3;
+            top: 10vh;
+            left: 0;
+            height: 8vh;
+            img
+            {
+                height: 100%;
+                width: auto;
+            }
+        }
         #map
         {
             position: absolute;
@@ -71,7 +84,7 @@
     {
         display: none;
         position: fixed;
-        z-index: 3;
+        z-index: 4;
         left: 0;
         top: 0;
         width: 100%;
