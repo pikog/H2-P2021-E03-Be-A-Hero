@@ -5,13 +5,13 @@
 
     header('Content-type: application/json');
 
-    if(!empty($_POST))
+    if(!empty($_GET))
     {
-        if(isset($_POST['user']) && isset($_POST['lat']) && isset($_POST['lon']))
+        if(isset($_GET['user']) && isset($_GET['lat']) && isset($_GET['lon']))
         {
-            $user = new User(intval($_POST['user']));
-            $lat = floatval($_POST['lat']);
-            $lon = floatval($_POST['lon']);
+            $user = new User(intval($_GET['user']));
+            $lat = floatval($_GET['lat']);
+            $lon = floatval($_GET['lon']);
 
             $eventsNearby = eventsNearby($lat, $lon, $user->level, 20);
             $events = [];

@@ -16,6 +16,7 @@ class View
     public function __toString()
     {
         $file = './views/' . $this->page . '/view' . ucfirst($this->page) . '.php';
+        $this->data['page'] = $this->page;
         $content = $this->render($file, $this->data);
         return $this->render('./views/template.php', [
             'content' => $content,

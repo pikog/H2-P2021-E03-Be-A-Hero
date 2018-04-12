@@ -31,7 +31,7 @@ class GeoPhoto
     public function getImageFromAPI()
     {
         $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, 'https://maps.googleapis.com/maps/api/streetview?location=' . urlencode($this->place) . '&fov=120&heading=' . $this->heading .'&size=400x200&key=' . API_GMAPS);
+        curl_setopt($curl, CURLOPT_URL, 'https://maps.googleapis.com/maps/api/streetview?location=' . urlencode($this->place) . '&fov=120&heading=' . $this->heading .'&size=480x100&key=' . API_GMAPS);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         $result = curl_exec($curl);
         curl_close($curl);
