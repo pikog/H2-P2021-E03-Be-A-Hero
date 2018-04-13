@@ -1,10 +1,14 @@
 <? 
     include_once './src/DB.php';
 
-    //Utils fonctions
+    /**
+     * Utils functions
+     */
 
     /**
-     * Return true if username is valid
+     * Check if the username format is valid
+     * @param string $username username
+     * @return boolean true if the username format is correct
      */
     function validUsername($username)
     {
@@ -13,7 +17,7 @@
 
     /**
      * Test if an username exist in database
-     * @param string username username to test
+     * @param string $username username to test
      * @return int id of user 
      */
     function existUsername($username)
@@ -29,7 +33,12 @@
     }
 
     /**
-     * Search events nearby
+     * Search events near a player
+     * @param float $lat latitude
+     * @param float $lon longitude
+     * @param int $level max level required
+     * @param int $radius radius of the event around the player
+     * @return array array of events
      */
     function eventsNearby($lat, $lon, $level, $radius)
     {
@@ -45,16 +54,35 @@
         return $results;
     }
 
+
+    /**
+     * Calc distance between two coordinates
+     * @param float $lat1 latitude group 1
+     * @param float $lon1 longitude group 1
+     * @param float $lat2 latitude group 2
+     * @param float $lon2 longitude group 2
+     * @return int distance in km
+     */
     function distanceLatLon($lat1, $lon1, $lat2, $lon2) {
         $calc = (6371 * acos(cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($lon2) - deg2rad($lon1)) + sin( deg2rad($lat1)) * sin(deg2rad($lat2))));
         return $calc;
     }
 
+    /**
+     * Calc xp required to the next level
+     * @param int $level level to calc
+     * @return int xp required
+     */
     function calcXpToNext($level)
     {
         return 100*($level+1);
     }
 
+
+    /**
+     * List all heroes availables
+     * @return array array of heroes id
+     */
     function getHeroes()
     {
         $result = [];
@@ -69,6 +97,9 @@
         return $result;
     }
 
+    /**
+     * Reset cache geophoto
+     */
     function resetGeophoto()
     {
         $folder = 'cache/geophotos/';

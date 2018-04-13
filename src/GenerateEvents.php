@@ -2,11 +2,20 @@
     include_once './src/DB.php';
     include_once './src/utils.php';
 
+    /**
+     * Class to regenerate events
+     */
+
     class GenerateEvents
     {
         private $numberOfEvents;
         private $events;
         private $status;
+
+        /**
+         * Initialise with number of events to generate
+         * @param int numberOfEvents number of events to generate
+         */
 
         public function __construct($numberOfEvents)
         {
@@ -16,11 +25,19 @@
             $this->insertEvents();
         }
 
+        /**
+         * Message to show when events are generated
+         * @return string message to return
+         */
+
         public function __tostring()
         {
             return $this->status ? "$this->numberOfEvents events generated" : "Error on generation";
         }
 
+        /**
+         * Delete all events from database
+         */
         private function cleanEvents()
         {
             $pdo = new DB();
@@ -31,6 +48,11 @@
             resetGeophoto();
         }
 
+        /**
+         * Find a random place in database
+         * @param array $notIds ids of place that can't match
+         * @return array array of places
+         */
         private function findRandomPlace($notIds)
         {
             if(empty($notIds))
@@ -51,6 +73,11 @@
             return $result;
         }
 
+        /**
+         * Find a random script in database
+         * @param int $type type of script to match with place
+         * @return array array of script
+         */
         private function findRandomScript($type)
         {
             $pdo = new DB();
@@ -63,6 +90,10 @@
             return $result;
         }
 
+
+        /**
+         * Match a place with a script
+         */
         private function match()
         {
             $events = [];
@@ -81,6 +112,9 @@
             $this->events = $events;
         }
 
+        /**
+         * Insert all generated events in database
+         */
         private function insertEvents()
         {
             $pdo = new DB();

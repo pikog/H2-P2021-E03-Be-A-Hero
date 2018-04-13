@@ -20,6 +20,7 @@
 
         /**
          * Initialize an existing user with an username
+         * @param int $id id of the user
          */
         public function __construct($id = null)
         {
@@ -32,6 +33,10 @@
 
         /**
          * Create new user in database with username, password, email and firstNname
+         * @param string $username username of the user
+         * @param string $password password of the user
+         * @param string $hero hero of the user
+         * @param int $hero hero choose by the user
          */
         public function create($username, $password, $heroName, $hero)
         {
@@ -53,6 +58,8 @@
 
         /**
          * Check if passwordToTry corresponding with the hash password save in database
+         * @param string $passwordToTry password to try
+         * @return boolean true if the password is good
          */
         public function checkPassword($passwordToTry)
         {
@@ -97,6 +104,8 @@
 
         /**
          * Set last geolocation
+         * @param float $lat latitude of the player
+         * @param float $lon longitude of the player
          */
         public function setLastGeolocation($lat, $lon)
         {
@@ -117,7 +126,9 @@
         }
 
         /**
-         * Set last geolocation
+         * Check if the play is cheating
+         * @param float $lat latitude of the player
+         * @param float $lon longitude of the player
          * @return boolean return true if the player cheat
          */
         public function checkCheat($lat, $lon)
@@ -138,6 +149,7 @@
 
         /**
          * Valid a mission
+         * @param int xp when the mission is validated
          * @return boolean return true if the mission is validated
          */
         public function validMission($reward)
@@ -160,6 +172,10 @@
             return ['reward' => $reward, 'level' => $this->level, 'level_up' => $levelUp];
         }
 
+        /**
+         * Add xp to the user
+         * @param int $xp xp to add
+         */
         private function addXp($xp)
         {
             $this->xp += $xp;

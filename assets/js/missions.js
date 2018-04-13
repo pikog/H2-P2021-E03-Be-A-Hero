@@ -1,8 +1,11 @@
-/* Geolocation */
 const geolocationButton = document.querySelector('a.button-geolocation')
 let geolocalised = false
 let coords = null
-console.log(user)
+
+/**
+ * Check if the navigator support geolocation & watch geolocation of the user 
+ * call once time goOnMap to generate the map and then update the player et get events nearby
+ */
 const geolocation = () =>
 {
     if(navigator.geolocation)
@@ -50,6 +53,10 @@ if(geolocationButton)
     geolocation()
 }
 
+/**
+ *  Get events near the user by calling the page events in ajax 
+ * pass id of user and coordinates and return a JSON
+ */ 
 const getEvents = () =>
 {
     const url = `events?user=${user.id}&lat=${coords.latitude}&lon=${coords.longitude}`
@@ -91,6 +98,9 @@ const getEvents = () =>
     }
 }
 
+/**
+ * Create all html DOM components for the map
+ */
 let mapElem = null
 const goOnMap = () =>
 {
@@ -106,9 +116,14 @@ const goOnMap = () =>
     getEvents()
 }
 
+
 let map = null
 let playerMarker = null
 const markers = []
+
+/**
+ * Generate the map and the player point with MapBox
+ */
 const genMap = () =>
 {
     mapboxgl.accessToken = 'pk.eyJ1IjoicGlrb2ciLCJhIjoiY2pmdmdoNXJjMWE3dTJ4cXF5NTR6cGp4YiJ9.kBW2FE_mxmr_g1EOJTAT0g';
@@ -128,6 +143,9 @@ const genMap = () =>
     playerMarker.addTo(map)
 }
 
+/**
+ * Set all events near the player on a map represented by a pinpoint
+ */
 const updateEvents = (events) =>
 {
     deleteMarkers()
@@ -147,6 +165,9 @@ const updateEvents = (events) =>
     }
 }
 
+/**
+ * delete all markers on the map
+ */
 const deleteMarkers = () =>
 {
     for(const marker of markers)
@@ -155,6 +176,9 @@ const deleteMarkers = () =>
     }
 }
 
+/**
+ * Update player position on map
+ */
 const updatePlayer = () =>
 {
     playerMarker.setLngLat([coords.longitude, coords.latitude])
@@ -172,6 +196,9 @@ popinContent.addEventListener('click', (e) =>
     e.stopPropagation()
 })
 
+/**
+ * Show a popin when click on marker event on map
+ */
 const popinEvent = (event) =>
 {
     popin.classList.remove('error')
@@ -215,53 +242,11 @@ const popinEvent = (event) =>
     })
 }
 
-const popinValidMission = (level, level_up, reward) =>
-{
-    popin.classList.remove('error')
-    popin.classList.add('valid')
-    popinContent.innerHTML = '<span class="close">&times;</span><div class="popin-body"><h3></h3><p class="reward"></p><p class="level-up"></p></div>';
-
-    popinContent.querySelector('h3').innerHTML = 'Congratulation, you are a <span class="hero">hero</span>!'
-    popinContent.querySelector('.reward').innerHTML = `Your reward: <b>+${reward}xp</b>`
-    if(level_up)
-    {
-        popinContent.querySelector('.level-up').innerHTML = `You passed level <b>${level}</b>`
-    }
-    else
-    {
-        popinContent.removeChild(popinContent.querySelector('.level-up'))
-    }
-
-    popin.style.display = 'block'
-
-    const crossClose = popin.querySelector('.close')
-    crossClose.addEventListener('click', (e) =>
-    {
-        e.preventDefault()
-        popin.style.display = 'none'
-    })
-
-    getEvents()
-}
-
-const popinError = (error) =>
-{
-    popin.classList.remove('valid')
-    popin.classList.add('error')
-    popinContent.innerHTML = '<span class="close">&times;</span><div class="popin-body"><h3></h3></div>';
-    
-    popinContent.querySelector('h3').textContent = error
-
-    popin.style.display = 'block'
-
-    const crossClose = popin.querySelector('.close')
-    crossClose.addEventListener('click', (e) =>
-    {
-        e.preventDefault()
-        popin.style.display = 'none'
-    })
-}
-
+/**
+ * Valid a mission by call in ajax page check-mission. 
+ * We pass user id, coords and event id to validate
+ * we get in return in json new levels and xp reward
+ */
 const validMission = (event) =>
 {
     const url = `check-mission?user=${user.id}&lat=${coords.latitude}&lon=${coords.longitude}&event=${event.id}`
@@ -312,4 +297,57 @@ const validMission = (event) =>
         xmlhttp.open("GET", url, true)
         xmlhttp.send()
     }
+}
+
+/**
+ * Show a popin when a mission is validated
+ */
+const popinValidMission = (level, level_up, reward) =>
+{
+    popin.classList.remove('error')
+    popin.classList.add('valid')
+    popinContent.innerHTML = '<span class="close">&times;</span><div class="popin-body"><h3></h3><p class="reward"></p><p class="level-up"></p></div>';
+
+    popinContent.querySelector('h3').innerHTML = 'Congratulation, you are a <span class="hero">hero</span>!'
+    popinContent.querySelector('.reward').innerHTML = `Your reward: <b>+${reward}xp</b>`
+    if(level_up)
+    {
+        popinContent.querySelector('.level-up').innerHTML = `You passed level <b>${level}</b>`
+    }
+    else
+    {
+        popinContent.removeChild(popinContent.querySelector('.level-up'))
+    }
+
+    popin.style.display = 'block'
+
+    const crossClose = popin.querySelector('.close')
+    crossClose.addEventListener('click', (e) =>
+    {
+        e.preventDefault()
+        popin.style.display = 'none'
+    })
+
+    getEvents()
+}
+
+/**
+ * Show a popin when there is an error
+ */
+const popinError = (error) =>
+{
+    popin.classList.remove('valid')
+    popin.classList.add('error')
+    popinContent.innerHTML = '<span class="close">&times;</span><div class="popin-body"><h3></h3></div>';
+    
+    popinContent.querySelector('h3').textContent = error
+
+    popin.style.display = 'block'
+
+    const crossClose = popin.querySelector('.close')
+    crossClose.addEventListener('click', (e) =>
+    {
+        e.preventDefault()
+        popin.style.display = 'none'
+    })
 }

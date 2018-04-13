@@ -1,4 +1,7 @@
 <?
+    /**
+     * small part to initialise user session
+     */
     session_start();
     include_once './src/User.php';
     if(isset($_SESSION['user']))

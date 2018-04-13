@@ -3,6 +3,12 @@
     include_once './src/loginSystem.php';
     include_once './src/utils.php';
 
+    /**
+     * Home page
+     * If a user is connect -> profil page
+     * else -> Intro
+     */
+
     if(isset($user))
     {
         $data = [

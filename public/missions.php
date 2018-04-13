@@ -3,9 +3,15 @@
     include_once './src/utils.php';
     include_once './src/loginSystem.php';
 
+    /**
+     * Mission page
+     */
+
     if(isset($user))
     {
-
+        /**
+         * pass user data to the view
+         */
         $data = [
             'user' => get_object_vars($user)
         ];

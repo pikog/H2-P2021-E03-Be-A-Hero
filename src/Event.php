@@ -2,6 +2,10 @@
     include_once './src/config.php';
     include_once './src/DB.php';
 
+    /**
+     * Event/Mission class
+     */
+
     class Event
     {
         public $id;
@@ -16,7 +20,7 @@
         public $reward;
 
         /**
-         * Initialize an existing user with an username
+         * Initialize and load an event
          */
         public function __construct($id)
         {
@@ -25,7 +29,7 @@
         }
 
         /**
-         * Get user information from database
+         * Get event information from database
          */
         private function getInfo()
         {
@@ -49,6 +53,9 @@
             $this->reward = intval($result->reward);
         }
 
+        /**
+         * Delete event form database
+         */
         public function delete()
         {
             $pdo = new DB();

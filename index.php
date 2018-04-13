@@ -1,4 +1,7 @@
 <?
+/**
+ * Router
+ */
 if(isset($_GET['q']))
 {
     if($_GET['q'] == 'home')
@@ -32,10 +35,6 @@ if(isset($_GET['q']))
     else if($_GET['q'] == 'generate-events')
     {
         $page = 'generate-events';
-    }
-    else if($_GET['q'] == 'test')
-    {
-        $page = 'test';
     }
     else
     {

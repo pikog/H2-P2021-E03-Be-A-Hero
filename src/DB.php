@@ -1,6 +1,10 @@
 <?
 include_once './src/config.php';
 
+/**
+ * Database connection class
+ */
+
 class DB
 {
 

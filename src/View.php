@@ -1,5 +1,9 @@
 <?
 
+    /**
+     * View class
+     */
+
 class View
 {
     private $page;
